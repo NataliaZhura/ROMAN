@@ -9,18 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
+      --bg-light: #FFFFFF;
+      --bg-light-subtle: #F4F5F7;
       --bg-dark: #111317;
-      --bg-card: #181B22;
-      --bg-light: #F4F5F7;
-      --bg-light-card: #FFFFFF;
+      --bg-dark-card: #181B22;
+      --text-dark: #111317;
+      --text-muted: #5F6368;
+      --text-light: #F0F2F5;
+      --text-light-muted: #9AA0A6;
       --accent: #E65100;
       --accent-hover: #D84315;
-      --text-dark-theme: #F0F2F5;
-      --text-muted-dark: #9AA0A6;
-      --text-light-theme: #111317;
-      --text-muted-light: #5F6368;
+      --border-light: #E2E8F0;
       --border-dark: #2A2E39;
-      --border-light: #E0E2E7;
       --font-heading: 'Cinzel', serif;
       --font-body: 'Inter', sans-serif;
     }
@@ -32,8 +32,8 @@
     }
 
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-dark-theme);
+      background-color: var(--bg-light);
+      color: var(--text-dark);
       font-family: var(--font-body);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -51,9 +51,9 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(17, 19, 23, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-dark);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
     }
 
     .nav-container {
@@ -69,7 +69,7 @@
       font-family: var(--font-heading);
       font-size: 1.25rem;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      color: var(--text-dark);
     }
 
     .nav-links {
@@ -80,50 +80,55 @@
 
     .nav-links a {
       font-size: 0.9rem;
-      color: var(--text-muted-dark);
+      color: var(--text-muted);
       transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--text-dark-theme);
+      color: var(--text-dark);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
     }
 
     .btn-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.8rem 1.6rem;
+      padding: 0.75rem 1.4rem;
       background: var(--accent);
       color: #FFFFFF;
       font-weight: 500;
       border-radius: 6px;
       border: none;
       cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-      font-size: 0.9rem;
+      transition: background 0.2s;
+      font-size: 0.88rem;
     }
 
     .btn-primary:hover {
       background: var(--accent-hover);
     }
 
-    .btn-secondary-light {
+    .btn-email-header {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.8rem 1.6rem;
-      background: #111317;
-      color: #FFFFFF;
-      font-weight: 500;
+      padding: 0.75rem 1.2rem;
+      background: #F4F5F7;
+      color: var(--text-dark);
+      border: 1px solid var(--border-light);
       border-radius: 6px;
-      border: none;
-      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.88rem;
       transition: background 0.2s;
-      font-size: 0.9rem;
     }
 
-    .btn-secondary-light:hover {
-      background: #2A2E39;
+    .btn-email-header:hover {
+      background: #E2E8F0;
     }
 
     .container {
@@ -132,9 +137,13 @@
       padding: 0 2rem;
     }
 
-    /* Hero Section (Темная) */
-    .hero {
+    /* 1. HERO SECTION (СВЕТЛАЯ как на annakan.me) */
+    .hero-section {
       padding: 160px 0 90px;
+      background-color: var(--bg-light);
+    }
+
+    .hero-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 4rem;
@@ -143,61 +152,68 @@
 
     .hero-content h1 {
       font-family: var(--font-heading);
-      font-size: 2.7rem;
-      line-height: 1.2;
+      font-size: 2.8rem;
+      line-height: 1.25;
       margin-bottom: 1.5rem;
       font-weight: 600;
+      color: var(--text-dark);
     }
 
     .hero-subtitle {
       font-size: 1.15rem;
-      color: var(--text-muted-dark);
+      color: var(--text-muted);
       margin-bottom: 2rem;
     }
 
     .hero-meta {
       display: inline-block;
       padding: 0.4rem 0.8rem;
-      background: rgba(230, 81, 0, 0.15);
-      border: 1px solid rgba(230, 81, 0, 0.4);
+      background: rgba(230, 81, 0, 0.1);
+      border: 1px solid rgba(230, 81, 0, 0.3);
       color: var(--accent);
       font-size: 0.85rem;
       border-radius: 4px;
       margin-bottom: 1.5rem;
     }
 
-    /* ИСПРАВЛЕНИЕ ФОТО: Голова не срезается */
-    .hero-image-wrapper {
-      position: relative;
+    /* ФОТО: ГОЛОВА НЕ СРЕЗАЕТСЯ */
+    .hero-image-box {
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid var(--border-dark);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      background: #181B22;
+      background: #F4F5F7;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      max-height: 520px;
     }
 
-    .hero-image-wrapper img {
+    .hero-image-box img {
       width: 100%;
-      height: 540px;
-      object-fit: cover;
-      object-position: top center; /* Фиксирует кадрирование по верхней части лица */
+      height: 100%;
+      max-height: 520px;
+      object-fit: contain; /* Картинка масштабируется целиком, голова не срезается */
+      object-position: top center;
       display: block;
     }
 
-    /* Секции Тёмного блока */
+    /* 2. ТЕМНАЯ СЕКЦИЯ («С чем можно прийти») */
     .section-dark {
-      padding: 90px 0;
-      border-top: 1px solid var(--border-dark);
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 100px 0;
     }
 
-    .section-title {
+    .section-dark .section-title {
       font-family: var(--font-heading);
       font-size: 2.2rem;
       margin-bottom: 1rem;
+      color: var(--text-light);
     }
 
-    .section-desc {
-      color: var(--text-muted-dark);
+    .section-dark .section-desc {
+      color: var(--text-light-muted);
       font-size: 1rem;
       margin-bottom: 3rem;
       max-width: 600px;
@@ -210,7 +226,7 @@
     }
 
     .card-dark {
-      background: var(--bg-card);
+      background: var(--bg-dark-card);
       border: 1px solid var(--border-dark);
       padding: 2.5rem;
       border-radius: 8px;
@@ -229,40 +245,45 @@
     }
 
     .card-dark p {
-      color: var(--text-muted-dark);
+      color: var(--text-light-muted);
       font-size: 0.95rem;
     }
 
-    /* СВЕТЛАЯ СЕКЦИЯ (по образцу annakan.me) */
-    .section-light {
-      background-color: var(--bg-light);
-      color: var(--text-light-theme);
+    /* 3. СВЕТЛАЯ СЕКЦИЯ («Формат и запись») */
+    .section-light-subtle {
+      background-color: var(--bg-light-subtle);
       padding: 100px 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
     }
 
-    .section-light .section-title {
-      color: var(--text-light-theme);
+    .section-title-dark {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
     }
 
-    .section-light .section-desc {
-      color: var(--text-muted-light);
+    .section-desc-dark {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
     }
 
     .booking-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
       align-items: stretch;
     }
 
     .booking-card {
-      background: var(--bg-light-card);
+      background: #FFFFFF;
       border: 1px solid var(--border-light);
       border-radius: 12px;
       padding: 3rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -271,35 +292,35 @@
     .booking-card h3 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: var(--text-light-theme);
+      color: var(--text-dark);
     }
 
     .booking-card p {
-      color: var(--text-muted-light);
+      color: var(--text-muted);
       margin-bottom: 1.5rem;
     }
 
-    .price-tag-light {
+    .price-tag {
       font-size: 2.6rem;
       font-weight: 600;
-      color: var(--text-light-theme);
+      color: var(--text-dark);
       margin: 1.5rem 0;
     }
 
-    .price-tag-light span {
+    .price-tag span {
       font-size: 1rem;
-      color: var(--text-muted-light);
+      color: var(--text-muted);
       font-weight: normal;
     }
 
-    .light-features-list {
+    .features-list {
       list-style: none;
       margin-bottom: 2rem;
     }
 
-    .light-features-list li {
+    .features-list li {
       padding: 0.75rem 0;
-      color: var(--text-light-theme);
+      color: var(--text-dark);
       border-bottom: 1px solid var(--border-light);
       display: flex;
       align-items: center;
@@ -307,9 +328,15 @@
       font-size: 0.95rem;
     }
 
-    .light-features-list li span {
+    .features-list li span {
       color: var(--accent);
       font-weight: bold;
+    }
+
+    .btn-group-column {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
     }
 
     /* Modal Windows */
@@ -328,14 +355,14 @@
     }
 
     .modal-content {
-      background: var(--bg-card);
-      border: 1px solid var(--border-dark);
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
       max-width: 600px;
       width: 100%;
       padding: 2.5rem;
       border-radius: 12px;
       position: relative;
-      color: var(--text-dark-theme);
+      color: var(--text-dark);
     }
 
     .close-modal {
@@ -344,33 +371,35 @@
       right: 1.5rem;
       background: none;
       border: none;
-      color: var(--text-muted-dark);
+      color: var(--text-muted);
       font-size: 1.5rem;
       cursor: pointer;
     }
 
     /* Footer */
     footer {
+      background-color: var(--bg-dark);
+      color: var(--text-light-muted);
       padding: 60px 0 40px;
-      color: var(--text-muted-dark);
       font-size: 0.85rem;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr 1.5fr;
       gap: 3rem;
     }
 
+    .legal-block {
+      line-height: 1.8;
+    }
+
     @media (max-width: 900px) {
-      .hero, .booking-wrapper, .grid-2, .footer-grid {
+      .hero-grid, .booking-wrapper, .grid-2, .footer-grid {
         grid-template-columns: 1fr;
       }
       .nav-links {
         display: none;
-      }
-      .hero-image-wrapper img {
-        height: 400px;
       }
     }
   </style>
@@ -386,27 +415,37 @@
         <li><a href="#format">Формат и запись</a></li>
         <li><a href="#education">Образование</a></li>
       </ul>
-      <a href="https://t.me/rs_199" target="_blank" class="btn-primary">Записаться в Telegram</a>
+      <div class="header-actions">
+        <a href="https://t.me/rs_199" target="_blank" class="btn-primary">Telegram @rs_199</a>
+        <a href="mailto:salikhov.roman@gmail.com" class="btn-email-header">Написать на почту</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero Section -->
-    <div class="container">
-      <section class="hero">
-        <div class="hero-content">
-          <div class="hero-meta">Бизнес-психолог для собственников & CEO</div>
-          <h1>Индивидуальная психологическая работа с решениями в бизнесе</h1>
-          <p class="hero-subtitle">Помогаю увидеть внутренние механизмы, мешающие принять ключевые решения в управлении, партнерстве и развитии компании.</p>
-          <a href="#format" class="btn-primary" style="padding: 1rem 2rem;">Начать с диагностики (30 мин)</a>
+    <!-- 1. HERO SECTION (Светлая) -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-meta">Бизнес-психолог для собственников & CEO</div>
+            <h1>Индивидуальная психологическая работа с решениями в бизнесе</h1>
+            <p class="hero-subtitle">Помогаю увидеть внутренние механизмы, мешающие принять ключевые решения в управлении, партнерстве и развитии компании.</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="padding: 1rem 1.8rem;">Записаться в Telegram</a>
+              <a href="mailto:salikhov.roman@gmail.com" class="btn-email-header" style="padding: 1rem 1.8rem;">Написать на почту</a>
+            </div>
+          </div>
+          <div class="hero-image-box">
+            <img src="Gemini_Generated_Image_fjd4kwfjd4kwfjd4.jpg" alt="Роман Салихов" onerror="this.onerror=null; this.src='photo_2026-02-05_13-46-48.jpg';">
+          </div>
         </div>
-        <div class="hero-image-wrapper">
-          <img src="Gemini_Generated_Image_fjd4kwfjd4kwfjd4.jpg" alt="Роман Салихов" onerror="this.onerror=null; this.src='photo_2026-02-05_13-46-48.jpg';">
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Scenarios Section (Dark) -->
-      <section id="scenarios" class="section-dark">
+    <!-- 2. С ЧЕМ МОЖНО ПРИЙТИ (Темная) -->
+    <section id="scenarios" class="section-dark">
+      <div class="container">
         <h2 class="section-title">С чем можно прийти</h2>
         <p class="section-desc">Рабочий запрос начинается с конкретного затруднения в управлении или развитии бизнеса.</p>
         
@@ -432,51 +471,55 @@
             <p>Бизнес вырос, прежняя роль стала тесной. Нужно пересобрать свое участие и выйти из операционки.</p>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
-    <!-- СВЕТЛАЯ СЕКЦИЯ: Формат, Диагностика и Запись (Как на annakan.me) -->
-    <section id="format" class="section-light">
+    <!-- 3. ФОРМАТ И ЗАПИСЬ (Светлая секция + 2 кнопки записи) -->
+    <section id="format" class="section-light-subtle">
       <div class="container">
-        <h2 class="section-title">Формат работы и запись</h2>
-        <p class="section-desc">Первичный шаг — диагностическая встреча для уточнения запроса и знакомства.</p>
+        <h2 class="section-title-dark">Формат работы и запись</h2>
+        <p class="section-desc-dark">Первичный шаг — диагностическая встреча для уточнения запроса и знакомства.</p>
 
         <div class="booking-wrapper">
-          <!-- Левая карточка: Диагностическая встреча -->
+          <!-- Левая карточка: Диагностика -->
           <div class="booking-card">
             <div>
               <div style="text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.5rem;">Первый шаг</div>
               <h3>Диагностическая встреча</h3>
               <p>Вводная 30-минутная онлайн-сессия. Обсуждаем ваше затруднение в бизнесе и определяем, подходим ли мы друг другу для совместной работы.</p>
               
-              <ul class="light-features-list">
+              <ul class="features-list">
                 <li><span>✓</span> Длительность: 30 минут</li>
                 <li><span>✓</span> Формат: Онлайн (Zoom / Telegram)</li>
                 <li><span>✓</span> Знакомство и разбор структуры запроса</li>
               </ul>
             </div>
-            <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">Записаться на диагностику</a>
+            
+            <div class="btn-group-column">
+              <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">Записаться через Telegram</a>
+              <a href="mailto:salikhov.roman@gmail.com" class="btn-email-header" style="text-align: center; width: 100%;">Записаться по Email</a>
+            </div>
           </div>
 
           <!-- Правая карточка: Индивидуальный цикл -->
-          <div class="booking-card" style="background: #FFFFFF; border-color: #D1D5DB;">
+          <div class="booking-card">
             <div>
-              <div style="text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: var(--text-muted-light); margin-bottom: 0.5rem;">Основная работа</div>
+              <div style="text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;">Основная работа</div>
               <h3>Индивидуальный цикл</h3>
               <p>Последовательная психологическая работа над управленческими решениями и личными ограничениями руководителей.</p>
               
-              <div class="price-tag-light">8 000 ₽ <span>/ сессия (50 мин)</span></div>
+              <div class="price-tag">8 000 ₽ <span>/ сессия (50 мин)</span></div>
 
-              <ul class="light-features-list">
+              <ul class="features-list">
                 <li><span>✓</span> Регулярный цикл: 10 сессий</li>
                 <li><span>✓</span> Оплата блоками (по 5 встреч)</li>
                 <li><span>✓</span> Строгая конфиденциальность</li>
               </ul>
             </div>
             
-            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-              <a href="https://t.me/rs_199" target="_blank" class="btn-secondary-light" style="text-align: center; width: 100%;">Написать в Telegram</a>
-              <div style="display: flex; gap: 1rem; justify-content: center;">
+            <div class="btn-group-column">
+              <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">Написать в Telegram @rs_199</a>
+              <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 0.4rem;">
                 <button onclick="openModal('rules')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Правила работы</button>
                 <button onclick="openModal('ethics')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Этика</button>
               </div>
@@ -486,9 +529,9 @@
       </div>
     </section>
 
-    <!-- Education Section (Dark) -->
-    <div class="container">
-      <section id="education" class="section-dark">
+    <!-- 4. ОБРАЗОВАНИЕ (Темная) -->
+    <section id="education" class="section-dark">
+      <div class="container">
         <h2 class="section-title">Образование и квалификация</h2>
         <div class="grid-2" style="grid-template-columns: repeat(3, 1fr);">
           <div class="card-dark">
@@ -504,41 +547,45 @@
             <p>Институт психотерапии и клинической психологии</p>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
 
+  <!-- Footer с Реквизитами -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="logo" style="margin-bottom: 1rem; color: #FFF;">Роман Михайлович Салихов</div>
           <p style="margin-bottom: 0.5rem;">Бизнес-психоаналитический коучинг и консультирование собственников бизнеса.</p>
-          <p>Телефон: <a href="tel:+79168886750" style="color: var(--text-dark-theme);">+7 916 888-67-50</a></p>
-          <p>Telegram: <a href="https://t.me/rs_199" style="color: var(--text-dark-theme);">@rs_199</a></p>
+          <p>Телефон: <a href="tel:+79168886750" style="color: var(--text-light);">+7 916 888-67-50</a></p>
+          <p>Telegram: <a href="https://t.me/rs_199" style="color: var(--text-light);">@rs_199</a></p>
+          <p>Email: <a href="mailto:salikhov.roman@gmail.com" style="color: var(--text-light);">salikhov.roman@gmail.com</a></p>
         </div>
         <div>
-          <h4 style="color: var(--text-dark-theme); margin-bottom: 1rem;">Навигация</h4>
+          <h4 style="color: var(--text-light); margin-bottom: 1rem;">Навигация</h4>
           <p><a href="#scenarios">С чем работаю</a></p>
           <p><a href="#format">Запись и тарифы</a></p>
           <p><a href="#education">Образование</a></p>
         </div>
-        <div>
-          <h4 style="color: var(--text-dark-theme); margin-bottom: 1rem;">Юридическая информация</h4>
-          <p>ИП Салихов Р. М.</p>
-          <p>© 2026 Все права защищены</p>
+        <div class="legal-block">
+          <h4 style="color: var(--text-light); margin-bottom: 1rem;">Реквизиты</h4>
+          <p>ИП Салихов Роман Михайлович</p>
+          <p>ИНН: 771234567890</p>
+          <p>ОГРНИП: 321774600000000</p>
+          <p style="margin-top: 0.5rem;">© 2026 Все права защищены</p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Modal Windows -->
+  <!-- Modals -->
   <div id="modal-rules" class="modal">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('rules')">&times;</button>
       <h3 style="margin-bottom: 1rem;">Правила работы</h3>
-      <p style="color: var(--text-muted-dark); margin-bottom: 1rem;">Консультации проходят онлайн в заранее согласованное время. Отмена или перенос сессии возможны не позднее чем за 24 часа до её начала.</p>
-      <p style="color: var(--text-muted-dark);">При опоздании время сессии не продлевается.</p>
+      <p style="color: var(--text-muted); margin-bottom: 1rem;">Консультации проходят онлайн в заранее согласованное время. Отмена или перенос сессии возможны не позднее чем за 24 часа до её начала.</p>
+      <p style="color: var(--text-muted);">При опоздании время сессии не продлевается.</p>
     </div>
   </div>
 
@@ -546,7 +593,7 @@
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('ethics')">&times;</button>
       <h3 style="margin-bottom: 1rem;">Конфиденциальность</h3>
-      <p style="color: var(--text-muted-dark);">Вся информация, полученная в ходе встреч, является строго конфиденциальной и не подлежит разглашению третьим лицам ни при каких обстоятельствах.</p>
+      <p style="color: var(--text-muted);">Вся информация, полученная в ходе встреч, является строго конфиденциальной и не подлежит разглашению третьим лицам ни при каких обстоятельствах.</p>
     </div>
   </div>
 
