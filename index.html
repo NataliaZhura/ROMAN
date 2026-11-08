@@ -31,6 +31,11 @@
       padding: 0;
     }
 
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
     body {
       background-color: var(--bg-white);
       color: var(--text-dark);
@@ -59,22 +64,24 @@
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1.2rem 2rem;
+      padding: 1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 1rem;
     }
 
     .logo {
       font-family: var(--font-heading);
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 600;
       color: var(--text-dark);
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem;
       list-style: none;
     }
 
@@ -91,14 +98,14 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.5rem;
     }
 
     .btn-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem 1.4rem;
+      padding: 0.65rem 1.2rem;
       background: var(--accent);
       color: #FFFFFF;
       font-weight: 500;
@@ -106,7 +113,8 @@
       border: none;
       cursor: pointer;
       transition: background 0.2s;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
+      white-space: nowrap;
     }
 
     .btn-primary:hover {
@@ -117,7 +125,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem 1.4rem;
+      padding: 0.65rem 1.2rem;
       background: #111317;
       color: #FFFFFF;
       font-weight: 500;
@@ -125,7 +133,8 @@
       border: none;
       cursor: pointer;
       transition: background 0.2s;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
+      white-space: nowrap;
     }
 
     .btn-secondary:hover {
@@ -135,63 +144,62 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
 
-    /* 1. HERO SECTION (СВЕТЛАЯ как на annakan.me) */
+    /* 1. HERO SECTION */
     .hero-section {
-      padding: 160px 0 90px;
+      padding: 130px 0 60px;
       background-color: var(--bg-white);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 4rem;
+      gap: 2.5rem;
       align-items: center;
     }
 
     .hero-content h1 {
       font-family: var(--font-heading);
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       line-height: 1.25;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       font-weight: 600;
       color: var(--text-dark);
     }
 
     .hero-subtitle {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
     }
 
     .hero-meta {
       display: inline-block;
-      padding: 0.4rem 0.8rem;
+      padding: 0.3rem 0.7rem;
       background: rgba(230, 81, 0, 0.1);
       border: 1px solid rgba(230, 81, 0, 0.3);
       color: var(--accent);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       border-radius: 4px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
-    /* ФОТО С ВЕРХНИМ ВЫРАВНИВАНИЕМ (ГОЛОВА В БЕЗОПАСНОСТИ) */
     .hero-image-box {
       border-radius: 12px;
       overflow: hidden;
-      height: 520px;
+      height: 480px;
       background: #F4F5F7;
       border: 1px solid var(--border-light);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     }
 
     .hero-image-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center; /* Принудительно выравнивает по верхней линии головы */
+      object-position: top center;
       display: block;
     }
 
@@ -199,79 +207,85 @@
     .section-dark {
       background-color: var(--bg-dark-ebony);
       color: var(--text-light);
-      padding: 100px 0;
+      padding: 80px 0;
     }
 
     .section-dark .section-title {
       font-family: var(--font-heading);
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
       color: var(--text-light);
     }
 
     .section-dark .section-desc {
       color: var(--text-light-muted);
-      font-size: 1rem;
-      margin-bottom: 3rem;
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
       max-width: 600px;
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      gap: 1.2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
     }
 
     .card-dark {
       background: var(--bg-dark-card);
       border: 1px solid var(--border-dark);
-      padding: 2.5rem;
+      padding: 2rem;
       border-radius: 8px;
     }
 
     .card-num {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       color: var(--accent);
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
 
     .card-dark h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
     }
 
     .card-dark p {
       color: var(--text-light-muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
-    /* 3. СВЕТЛАЯ СЕКЦИЯ («Формат работы / Запись» с картинкой) */
+    /* 3. СВЕТЛАЯ СЕКЦИЯ («Формат работы / Запись») */
     .section-light-subtle {
       background-color: var(--bg-light-gray);
-      padding: 100px 0;
+      padding: 80px 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
     }
 
     .section-title-dark {
       font-family: var(--font-heading);
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
       color: var(--text-dark);
     }
 
     .section-desc-dark {
       color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 3rem;
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
       max-width: 600px;
     }
 
     .booking-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3rem;
+      gap: 2rem;
       align-items: center;
     }
 
@@ -279,30 +293,30 @@
       background: #FFFFFF;
       border: 1px solid var(--border-light);
       border-radius: 12px;
-      padding: 3rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      padding: 2.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
     }
 
     .booking-card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
       color: var(--text-dark);
     }
 
     .booking-card p {
       color: var(--text-muted);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .price-tag {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 600;
       color: var(--text-dark);
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
     }
 
     .price-tag span {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       font-weight: normal;
     }
@@ -310,9 +324,8 @@
     .booking-image-box {
       border-radius: 12px;
       overflow: hidden;
-      height: 480px;
+      height: 420px;
       border: 1px solid var(--border-light);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
     .booking-image-box img {
@@ -324,9 +337,9 @@
 
     .btn-dual-group {
       display: flex;
-      gap: 1rem;
+      gap: 0.8rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
+      margin-top: 1.2rem;
     }
 
     /* Modal Windows */
@@ -347,9 +360,9 @@
     .modal-content {
       background: #FFFFFF;
       border: 1px solid var(--border-light);
-      max-width: 600px;
+      max-width: 550px;
       width: 100%;
-      padding: 2.5rem;
+      padding: 2rem;
       border-radius: 12px;
       position: relative;
       color: var(--text-dark);
@@ -357,12 +370,12 @@
 
     .close-modal {
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
+      top: 1.2rem;
+      right: 1.2rem;
       background: none;
       border: none;
       color: var(--text-muted);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       cursor: pointer;
     }
 
@@ -370,26 +383,66 @@
     footer {
       background-color: var(--bg-dark-ebony);
       color: var(--text-light-muted);
-      padding: 60px 0 40px;
+      padding: 50px 0 35px;
       font-size: 0.85rem;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1.5fr;
-      gap: 3rem;
+      gap: 2.5rem;
     }
 
     .legal-block {
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
+    /* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
     @media (max-width: 900px) {
-      .hero-grid, .booking-grid, .grid-2, .footer-grid {
-        grid-template-columns: 1fr;
-      }
       .nav-links {
         display: none;
+      }
+      
+      .hero-grid, 
+      .booking-grid, 
+      .grid-2, 
+      .grid-3, 
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+      }
+
+      .hero-section {
+        padding: 100px 0 40px;
+      }
+
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-image-box {
+        height: 380px;
+      }
+
+      .booking-image-box {
+        height: 280px;
+      }
+
+      .booking-card {
+        padding: 1.8rem;
+      }
+
+      .btn-dual-group {
+        flex-direction: column;
+      }
+
+      .btn-dual-group a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .header-actions .btn-secondary {
+        display: none; /* На мобильных оставляем только главную кнопку Telegram */
       }
     }
   </style>
@@ -413,7 +466,7 @@
   </header>
 
   <main>
-    <!-- 1. HERO SECTION (Светлая по аналогии с annakan.me) -->
+    <!-- 1. HERO SECTION (Светлая) -->
     <section class="hero-section">
       <div class="container">
         <div class="hero-grid">
@@ -422,10 +475,9 @@
             <h1>Индивидуальная психологическая работа с решениями в бизнесе</h1>
             <p class="hero-subtitle">Помогаю увидеть внутренние механизмы, мешающие принять ключевые решения в управлении, партнерстве и развитии компании.</p>
             
-            <!-- Две кнопки записи -->
             <div class="btn-dual-group">
-              <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="padding: 1rem 1.8rem;">Записаться в Telegram</a>
-              <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary" style="padding: 1rem 1.8rem;">Записаться по почте</a>
+              <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="padding: 0.9rem 1.6rem;">Записаться в Telegram</a>
+              <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary" style="padding: 0.9rem 1.6rem;">Записаться по почте</a>
             </div>
           </div>
           <div class="hero-image-box">
@@ -435,7 +487,7 @@
       </div>
     </section>
 
-    <!-- 2. С ЧЕМ МОЖНО ПРИЙТИ (Контрастная темная) -->
+    <!-- 2. С ЧЕМ МОЖНО ПРИЙТИ (Темная) -->
     <section id="scenarios" class="section-dark">
       <div class="container">
         <h2 class="section-title">С чем можно прийти</h2>
@@ -466,22 +518,21 @@
       </div>
     </section>
 
-    <!-- 3. ФОРМАТ И ЗАПИСЬ (Светлая с картинкой кабинета/атмосферы) -->
+    <!-- 3. ФОРМАТ И ЗАПИСЬ (Светлая) -->
     <section id="format" class="section-light-subtle">
       <div class="container">
         <h2 class="section-title-dark">Формат работы и запись</h2>
         <p class="section-desc-dark">Первичный шаг — диагностическая 30-минутная встреча для уточнения запроса.</p>
 
         <div class="booking-grid">
-          <!-- Карточка записи -->
           <div class="booking-card">
-            <div style="text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.5rem;">Первичный шаг</div>
+            <div style="text-transform: uppercase; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.4rem;">Первичный шаг</div>
             <h3>Диагностическая встреча</h3>
             <p>Вводная онлайн-сессия. Обсуждаем ваше затруднение в бизнесе и определяем структуру работы.</p>
             
             <div class="price-tag">8 000 ₽ <span>/ сессия (50 мин)</span></div>
 
-            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.2rem;">
               • Цикл: 10 встреч (оплата по 5 встреч)<br>
               • Конфиденциальность гарантируется
             </p>
@@ -491,15 +542,14 @@
               <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary" style="flex: 1; text-align: center;">Запись по Email</a>
             </div>
 
-            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-              <button onclick="openModal('rules')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Правила работы</button>
-              <button onclick="openModal('ethics')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Этика</button>
+            <div style="display: flex; gap: 1rem; margin-top: 1.2rem;">
+              <button onclick="openModal('rules')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.8rem;">Правила работы</button>
+              <button onclick="openModal('ethics')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.8rem;">Этика</button>
             </div>
           </div>
 
-          <!-- Картинка для блока записи -->
           <div class="booking-image-box">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Кабинет и атмосфера консультации">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Кабинет и атмосфера">
           </div>
         </div>
       </div>
@@ -509,7 +559,7 @@
     <section id="education" class="section-dark">
       <div class="container">
         <h2 class="section-title">Образование и квалификация</h2>
-        <div class="grid-2" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="grid-3">
           <div class="card-dark">
             <h3>НИУ ВШЭ</h3>
             <p>Национальный исследовательский университет «Высшая школа экономики»</p>
@@ -527,29 +577,29 @@
     </section>
   </main>
 
-  <!-- Footer с точными Реквизитами -->
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="logo" style="margin-bottom: 1rem; color: #FFF;">Роман Михайлович Салихов</div>
-          <p style="margin-bottom: 0.5rem;">Бизнес-психоаналитический коучинг и консультирование собственников бизнеса.</p>
+          <div class="logo" style="margin-bottom: 0.8rem; color: #FFF;">Роман Михайлович Салихов</div>
+          <p style="margin-bottom: 0.4rem;">Бизнес-психоаналитический коучинг и консультирование собственников бизнеса.</p>
           <p>Телефон: <a href="tel:+79168886750" style="color: var(--text-light);">+7 916 888-67-50</a></p>
           <p>Telegram: <a href="https://t.me/rs_199" style="color: var(--text-light);">@rs_199</a></p>
           <p>Email: <a href="mailto:salikhov.roman@gmail.com" style="color: var(--text-light);">salikhov.roman@gmail.com</a></p>
         </div>
         <div>
-          <h4 style="color: var(--text-light); margin-bottom: 1rem;">Навигация</h4>
+          <h4 style="color: var(--text-light); margin-bottom: 0.8rem;">Навигация</h4>
           <p><a href="#scenarios">С чем работаю</a></p>
           <p><a href="#format">Запись и тарифы</a></p>
           <p><a href="#education">Образование</a></p>
         </div>
         <div class="legal-block">
-          <h4 style="color: var(--text-light); margin-bottom: 1rem;">Юридическая информация</h4>
+          <h4 style="color: var(--text-light); margin-bottom: 0.8rem;">Юридическая информация</h4>
           <p>ИП Салихов Роман Михайлович</p>
           <p>ИНН: 771234567890</p>
           <p>ОГРНИП: 321774600000000</p>
-          <p style="margin-top: 0.5rem;">© 2026 Все права защищены</p>
+          <p style="margin-top: 0.4rem;">© 2026 Все права защищены</p>
         </div>
       </div>
     </div>
@@ -559,8 +609,8 @@
   <div id="modal-rules" class="modal">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('rules')">&times;</button>
-      <h3 style="margin-bottom: 1rem;">Правила работы</h3>
-      <p style="color: var(--text-muted); margin-bottom: 1rem;">Консультации проходят онлайн в заранее согласованное время. Отмена или перенос сессии возможны не позднее чем за 24 часа до её начала.</p>
+      <h3 style="margin-bottom: 0.8rem;">Правила работы</h3>
+      <p style="color: var(--text-muted); margin-bottom: 0.8rem;">Консультации проходят онлайн в заранее согласованное время. Отмена или перенос сессии возможны не позднее чем за 24 часа до её начала.</p>
       <p style="color: var(--text-muted);">При опоздании время сессии не продлевается.</p>
     </div>
   </div>
@@ -568,7 +618,7 @@
   <div id="modal-ethics" class="modal">
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('ethics')">&times;</button>
-      <h3 style="margin-bottom: 1rem;">Конфиденциальность</h3>
+      <h3 style="margin-bottom: 0.8rem;">Конфиденциальность</h3>
       <p style="color: var(--text-muted);">Вся информация, полученная в ходе встреч, является строго конфиденциальной и не подлежит разглашению третьим лицам ни при каких обстоятельствах.</p>
     </div>
   </div>
