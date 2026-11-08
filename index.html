@@ -9,9 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-light: #FFFFFF;
-      --bg-light-subtle: #F4F5F7;
-      --bg-dark: #111317;
+      --bg-white: #FFFFFF;
+      --bg-light-gray: #F8F9FA;
+      --bg-dark-ebony: #111317;
       --bg-dark-card: #181B22;
       --text-dark: #111317;
       --text-muted: #5F6368;
@@ -32,7 +32,7 @@
     }
 
     body {
-      background-color: var(--bg-light);
+      background-color: var(--bg-white);
       color: var(--text-dark);
       font-family: var(--font-body);
       line-height: 1.6;
@@ -113,22 +113,23 @@
       background: var(--accent-hover);
     }
 
-    .btn-email-header {
+    .btn-secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem 1.2rem;
-      background: #F4F5F7;
-      color: var(--text-dark);
-      border: 1px solid var(--border-light);
-      border-radius: 6px;
+      padding: 0.75rem 1.4rem;
+      background: #111317;
+      color: #FFFFFF;
       font-weight: 500;
-      font-size: 0.88rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
       transition: background 0.2s;
+      font-size: 0.88rem;
     }
 
-    .btn-email-header:hover {
-      background: #E2E8F0;
+    .btn-secondary:hover {
+      background: #2A2E39;
     }
 
     .container {
@@ -140,7 +141,7 @@
     /* 1. HERO SECTION (СВЕТЛАЯ как на annakan.me) */
     .hero-section {
       padding: 160px 0 90px;
-      background-color: var(--bg-light);
+      background-color: var(--bg-white);
     }
 
     .hero-grid {
@@ -176,31 +177,27 @@
       margin-bottom: 1.5rem;
     }
 
-    /* ФОТО: ГОЛОВА НЕ СРЕЗАЕТСЯ */
+    /* ФОТО С ВЕРХНИМ ВЫРАВНИВАНИЕМ (ГОЛОВА В БЕЗОПАСНОСТИ) */
     .hero-image-box {
       border-radius: 12px;
       overflow: hidden;
+      height: 520px;
       background: #F4F5F7;
       border: 1px solid var(--border-light);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      max-height: 520px;
     }
 
     .hero-image-box img {
       width: 100%;
       height: 100%;
-      max-height: 520px;
-      object-fit: contain; /* Картинка масштабируется целиком, голова не срезается */
-      object-position: top center;
+      object-fit: cover;
+      object-position: top center; /* Принудительно выравнивает по верхней линии головы */
       display: block;
     }
 
     /* 2. ТЕМНАЯ СЕКЦИЯ («С чем можно прийти») */
     .section-dark {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-dark-ebony);
       color: var(--text-light);
       padding: 100px 0;
     }
@@ -249,9 +246,9 @@
       font-size: 0.95rem;
     }
 
-    /* 3. СВЕТЛАЯ СЕКЦИЯ («Формат и запись») */
+    /* 3. СВЕТЛАЯ СЕКЦИЯ («Формат работы / Запись» с картинкой) */
     .section-light-subtle {
-      background-color: var(--bg-light-subtle);
+      background-color: var(--bg-light-gray);
       padding: 100px 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
@@ -271,11 +268,11 @@
       max-width: 600px;
     }
 
-    .booking-wrapper {
+    .booking-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: stretch;
+      gap: 3rem;
+      align-items: center;
     }
 
     .booking-card {
@@ -284,9 +281,6 @@
       border-radius: 12px;
       padding: 3rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
     .booking-card h3 {
@@ -301,7 +295,7 @@
     }
 
     .price-tag {
-      font-size: 2.6rem;
+      font-size: 2.5rem;
       font-weight: 600;
       color: var(--text-dark);
       margin: 1.5rem 0;
@@ -313,30 +307,26 @@
       font-weight: normal;
     }
 
-    .features-list {
-      list-style: none;
-      margin-bottom: 2rem;
+    .booking-image-box {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 480px;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
-    .features-list li {
-      padding: 0.75rem 0;
-      color: var(--text-dark);
-      border-bottom: 1px solid var(--border-light);
+    .booking-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .btn-dual-group {
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.95rem;
-    }
-
-    .features-list li span {
-      color: var(--accent);
-      font-weight: bold;
-    }
-
-    .btn-group-column {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
     }
 
     /* Modal Windows */
@@ -378,7 +368,7 @@
 
     /* Footer */
     footer {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-dark-ebony);
       color: var(--text-light-muted);
       padding: 60px 0 40px;
       font-size: 0.85rem;
@@ -395,7 +385,7 @@
     }
 
     @media (max-width: 900px) {
-      .hero-grid, .booking-wrapper, .grid-2, .footer-grid {
+      .hero-grid, .booking-grid, .grid-2, .footer-grid {
         grid-template-columns: 1fr;
       }
       .nav-links {
@@ -417,13 +407,13 @@
       </ul>
       <div class="header-actions">
         <a href="https://t.me/rs_199" target="_blank" class="btn-primary">Telegram @rs_199</a>
-        <a href="mailto:salikhov.roman@gmail.com" class="btn-email-header">Написать на почту</a>
+        <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary">Почта</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- 1. HERO SECTION (Светлая) -->
+    <!-- 1. HERO SECTION (Светлая по аналогии с annakan.me) -->
     <section class="hero-section">
       <div class="container">
         <div class="hero-grid">
@@ -431,9 +421,11 @@
             <div class="hero-meta">Бизнес-психолог для собственников & CEO</div>
             <h1>Индивидуальная психологическая работа с решениями в бизнесе</h1>
             <p class="hero-subtitle">Помогаю увидеть внутренние механизмы, мешающие принять ключевые решения в управлении, партнерстве и развитии компании.</p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            
+            <!-- Две кнопки записи -->
+            <div class="btn-dual-group">
               <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="padding: 1rem 1.8rem;">Записаться в Telegram</a>
-              <a href="mailto:salikhov.roman@gmail.com" class="btn-email-header" style="padding: 1rem 1.8rem;">Написать на почту</a>
+              <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary" style="padding: 1rem 1.8rem;">Записаться по почте</a>
             </div>
           </div>
           <div class="hero-image-box">
@@ -443,7 +435,7 @@
       </div>
     </section>
 
-    <!-- 2. С ЧЕМ МОЖНО ПРИЙТИ (Темная) -->
+    <!-- 2. С ЧЕМ МОЖНО ПРИЙТИ (Контрастная темная) -->
     <section id="scenarios" class="section-dark">
       <div class="container">
         <h2 class="section-title">С чем можно прийти</h2>
@@ -474,56 +466,40 @@
       </div>
     </section>
 
-    <!-- 3. ФОРМАТ И ЗАПИСЬ (Светлая секция + 2 кнопки записи) -->
+    <!-- 3. ФОРМАТ И ЗАПИСЬ (Светлая с картинкой кабинета/атмосферы) -->
     <section id="format" class="section-light-subtle">
       <div class="container">
         <h2 class="section-title-dark">Формат работы и запись</h2>
-        <p class="section-desc-dark">Первичный шаг — диагностическая встреча для уточнения запроса и знакомства.</p>
+        <p class="section-desc-dark">Первичный шаг — диагностическая 30-минутная встреча для уточнения запроса.</p>
 
-        <div class="booking-wrapper">
-          <!-- Левая карточка: Диагностика -->
+        <div class="booking-grid">
+          <!-- Карточка записи -->
           <div class="booking-card">
-            <div>
-              <div style="text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.5rem;">Первый шаг</div>
-              <h3>Диагностическая встреча</h3>
-              <p>Вводная 30-минутная онлайн-сессия. Обсуждаем ваше затруднение в бизнесе и определяем, подходим ли мы друг другу для совместной работы.</p>
-              
-              <ul class="features-list">
-                <li><span>✓</span> Длительность: 30 минут</li>
-                <li><span>✓</span> Формат: Онлайн (Zoom / Telegram)</li>
-                <li><span>✓</span> Знакомство и разбор структуры запроса</li>
-              </ul>
-            </div>
+            <div style="text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 0.5rem;">Первичный шаг</div>
+            <h3>Диагностическая встреча</h3>
+            <p>Вводная онлайн-сессия. Обсуждаем ваше затруднение в бизнесе и определяем структуру работы.</p>
             
-            <div class="btn-group-column">
-              <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">Записаться через Telegram</a>
-              <a href="mailto:salikhov.roman@gmail.com" class="btn-email-header" style="text-align: center; width: 100%;">Записаться по Email</a>
+            <div class="price-tag">8 000 ₽ <span>/ сессия (50 мин)</span></div>
+
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+              • Цикл: 10 встреч (оплата по 5 встреч)<br>
+              • Конфиденциальность гарантируется
+            </p>
+
+            <div class="btn-dual-group">
+              <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="flex: 1; text-align: center;">Запись в Telegram</a>
+              <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary" style="flex: 1; text-align: center;">Запись по Email</a>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+              <button onclick="openModal('rules')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Правила работы</button>
+              <button onclick="openModal('ethics')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Этика</button>
             </div>
           </div>
 
-          <!-- Правая карточка: Индивидуальный цикл -->
-          <div class="booking-card">
-            <div>
-              <div style="text-transform: uppercase; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.5rem;">Основная работа</div>
-              <h3>Индивидуальный цикл</h3>
-              <p>Последовательная психологическая работа над управленческими решениями и личными ограничениями руководителей.</p>
-              
-              <div class="price-tag">8 000 ₽ <span>/ сессия (50 мин)</span></div>
-
-              <ul class="features-list">
-                <li><span>✓</span> Регулярный цикл: 10 сессий</li>
-                <li><span>✓</span> Оплата блоками (по 5 встреч)</li>
-                <li><span>✓</span> Строгая конфиденциальность</li>
-              </ul>
-            </div>
-            
-            <div class="btn-group-column">
-              <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="text-align: center; width: 100%;">Написать в Telegram @rs_199</a>
-              <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 0.4rem;">
-                <button onclick="openModal('rules')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Правила работы</button>
-                <button onclick="openModal('ethics')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.85rem;">Этика</button>
-              </div>
-            </div>
+          <!-- Картинка для блока записи -->
+          <div class="booking-image-box">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Кабинет и атмосфера консультации">
           </div>
         </div>
       </div>
@@ -551,7 +527,7 @@
     </section>
   </main>
 
-  <!-- Footer с Реквизитами -->
+  <!-- Footer с точными Реквизитами -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -569,7 +545,7 @@
           <p><a href="#education">Образование</a></p>
         </div>
         <div class="legal-block">
-          <h4 style="color: var(--text-light); margin-bottom: 1rem;">Реквизиты</h4>
+          <h4 style="color: var(--text-light); margin-bottom: 1rem;">Юридическая информация</h4>
           <p>ИП Салихов Роман Михайлович</p>
           <p>ИНН: 771234567890</p>
           <p>ОГРНИП: 321774600000000</p>
