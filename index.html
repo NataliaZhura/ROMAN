@@ -8,351 +8,40 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-dark: #111317;
-      --bg-card: #181B22;
-      --bg-card-hover: #20242D;
-      --accent: #E65100;
-      --accent-hover: #F57C00;
-      --text-main: #F0F2F5;
-      --text-muted: #9AA0A6;
-      --border: #2A2E39;
-      --font-heading: 'Cinzel', serif;
-      --font-body: 'Inter', sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: var(--font-body);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(17, 19, 23, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: var(--font-heading);
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-main);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .btn-tg {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.85rem;
-      color: var(--text-main);
-      transition: all 0.2s;
-    }
-
-    .btn-tg:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--text-muted);
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.75rem 1.5rem;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 500;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      transition: background 0.2s;
-      font-size: 0.9rem;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .hero {
-      padding: 160px 0 100px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-content h1 {
-      font-family: var(--font-heading);
-      font-size: 2.8rem;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-
-    .hero-subtitle {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      max-width: 500px;
-    }
-
-    .hero-meta {
-      display: inline-block;
-      padding: 0.4rem 0.8rem;
-      background: rgba(230, 81, 0, 0.1);
-      border: 1px solid rgba(230, 81, 0, 0.3);
-      color: var(--accent);
-      font-size: 0.85rem;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-image-wrapper {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-image-wrapper img {
-      width: 100%;
-      height: 520px;
-      object-fit: cover;
-      display: block;
-    }
-
-    section {
-      padding: 90px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 3rem;
-      max-width: 600px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      border-radius: 8px;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-
-    .card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .card-num {
-      font-size: 1.25rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .step-item h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .step-item p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .pricing-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 3rem;
-      border-radius: 12px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .pricing-details h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .price-tag {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: var(--text-main);
-      margin: 1.5rem 0;
-    }
-
-    .price-tag span {
-      font-size: 1rem;
-      color: var(--text-muted);
-      font-weight: normal;
-    }
-
-    .pricing-features {
-      list-style: none;
-      margin-bottom: 2rem;
-    }
-
-    .pricing-features li {
-      padding: 0.5rem 0;
-      color: var(--text-muted);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    .modal-content {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      max-width: 600px;
-      width: 100%;
-      padding: 2.5rem;
-      border-radius: 12px;
-      position: relative;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 60px 0 30px;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
-
-    .legal-info {
-      line-height: 1.8;
-    }
-
-    @media (max-width: 900px) {
-      .hero, .pricing-box, .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .grid-4, .steps {
-        grid-template-columns: 1fr;
-      }
-      .nav-links {
-        display: none;
-      }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: #111317; color: #F0F2F5; font-family: 'Inter', sans-serif; line-height: 1.6; padding-bottom: 60px; }
+    a { color: inherit; text-decoration: none; }
+    
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(17, 19, 23, 0.95); border-bottom: 1px solid #2A2E39; }
+    .nav-container { max-width: 1200px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 600; }
+    .btn-primary { padding: 0.75rem 1.5rem; background: #E65100; color: #fff; border-radius: 6px; display: inline-block; font-weight: 500; }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .hero { padding: 150px 0 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .hero-meta { display: inline-block; padding: 0.4rem 0.8rem; background: rgba(230, 81, 0, 0.15); border: 1px solid rgba(230, 81, 0, 0.4); color: #E65100; font-size: 0.85rem; border-radius: 4px; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Cinzel', serif; font-size: 2.6rem; line-height: 1.2; margin-bottom: 1.5rem; }
+    .hero-subtitle { font-size: 1.1rem; color: #9AA0A6; margin-bottom: 2rem; }
+    .hero-img { width: 100%; height: 480px; object-fit: cover; border-radius: 12px; border: 1px solid #2A2E39; display: block; }
+    
+    section { padding: 80px 0; border-top: 1px solid #2A2E39; }
+    .section-title { font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 1rem; }
+    .section-desc { color: #9AA0A6; margin-bottom: 2.5rem; }
+    
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .card { background: #181B22; border: 1px solid #2A2E39; padding: 2rem; border-radius: 8px; }
+    .card-num { color: #E65100; font-weight: 600; margin-bottom: 0.5rem; }
+    .card h3 { margin-bottom: 0.8rem; }
+    .card p { color: #9AA0A6; font-size: 0.95rem; }
+    
+    .pricing-box { background: #181B22; border: 1px solid #2A2E39; padding: 3rem; border-radius: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .price { font-size: 2.5rem; font-weight: 600; margin: 1.5rem 0; color: #fff; }
+    
+    footer { border-top: 1px solid #2A2E39; padding-top: 50px; color: #9AA0A6; font-size: 0.9rem; }
+    
+    @media (max-width: 800px) {
+      .hero, .grid-2, .grid-3, .pricing-box { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -361,38 +50,29 @@
   <header>
     <div class="nav-container">
       <div class="logo">Роман Салихов</div>
-      <ul class="nav-links">
-        <li><a href="#scenarios">С чем работаю</a></li>
-        <li><a href="#format">Формат</a></li>
-        <li><a href="#pricing">Условия</a></li>
-      </ul>
-      <div class="header-actions">
-        <a href="https://t.me/rs_199" target="_blank" class="btn-tg">Telegram @rs_199</a>
-        <a href="https://t.me/rs_199" class="btn-primary">Записаться</a>
-      </div>
+      <a href="https://t.me/rs_199" target="_blank" class="btn-primary">Записаться в Telegram</a>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-content">
+  <div class="container">
+    
+    <div class="hero">
+      <div>
         <div class="hero-meta">Бизнес-психолог для собственников & CEO</div>
         <h1>Индивидуальная психологическая работа с решениями в бизнесе</h1>
         <p class="hero-subtitle">Помогаю увидеть внутренние механизмы, мешающие принять ключевые решения в управлении, партнерстве и развитии компании.</p>
-        <div style="display: flex; gap: 1rem; align-items: center;">
-          <a href="https://t.me/rs_199" class="btn-primary" style="padding: 1rem 2rem;">Начать с диагностики (30 мин)</a>
-        </div>
+        <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="padding: 1rem 2rem;">Начать с диагностики (30 мин)</a>
       </div>
-      <div class="hero-image-wrapper">
-        <img src="Gemini_Generated_Image_fjd4kwfjd4kwfjd4.jpg" alt="Роман Салихов" onerror="this.onerror=null; this.src='photo_2026-02-05_13-46-48.jpg';">
+      <div>
+        <img src="Gemini_Generated_Image_fjd4kwfjd4kwfjd4.jpg" alt="Роман Салихов" class="hero-img" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80';">
       </div>
-    </section>
+    </div>
 
-    <section id="scenarios">
+    <section>
       <h2 class="section-title">С чем можно прийти</h2>
       <p class="section-desc">Рабочий запрос начинается с конкретного затруднения в управлении или развитии бизнеса.</p>
       
-      <div class="grid-4">
+      <div class="grid-2">
         <div class="card">
           <div class="card-num">01</div>
           <h3>Решение откладывается</h3>
@@ -416,52 +96,49 @@
       </div>
     </section>
 
-    <section id="format">
+    <section>
       <h2 class="section-title">С чего начать</h2>
       <p class="section-desc">Первый шаг — диагностическая встреча (30 минут, онлайн).</p>
 
-      <div class="steps">
-        <div class="step-item">
-          <h4>01. Обсуждаем затруднение</h4>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-num">01</div>
+          <h3>Обсуждаем затруднение</h3>
           <p>Что происходит в компании, какое решение требуется и где вы пока не можете продвинуться.</p>
         </div>
-        <div class="step-item">
-          <h4>02. Уточняем запрос</h4>
+        <div class="card">
+          <div class="card-num">02</div>
+          <h3>Уточняем запрос</h3>
           <p>На какие внутренние и внешние факторы можно повлиять в работе, какое изменение имеет смысл.</p>
         </div>
-        <div class="step-item">
-          <h4>03. Определяем формат</h4>
+        <div class="card">
+          <div class="card-num">03</div>
+          <h3>Определяем формат</h3>
           <p>Обсуждаем структуру работы. Решение о продолжении вы принимаете после знакомства.</p>
         </div>
       </div>
     </section>
 
-    <section id="pricing">
+    <section>
       <div class="pricing-box">
-        <div class="pricing-details">
+        <div>
           <h3>Индивидуальный рабочий цикл</h3>
-          <p style="color: var(--text-muted);">Последовательная психодинамическая работа с конкретным запросом руководителей.</p>
-          <div class="price-tag">8 000 ₽ <span>/ сессия</span></div>
-          <a href="https://t.me/rs_199" class="btn-primary" style="width: 100%;">Записаться на встречу</a>
+          <p style="color: #9AA0A6; margin-top: 0.5rem;">Последовательная психодинамическая работа с конкретным запросом руководителей.</p>
+          <div class="price">8 000 ₽ <span style="font-size: 1rem; color: #9AA0A6; font-weight: normal;">/ сессия</span></div>
+          <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="display: block; text-align: center;">Записаться на встречу</a>
         </div>
         <div>
-          <ul class="pricing-features">
-            <li><strong>Формат:</strong> Онлайн-встречи</li>
-            <li><strong>Длительность сессии:</strong> 50 минут</li>
-            <li><strong>Основной цикл:</strong> 10 встреч</li>
-            <li><strong>Оплата:</strong> По блокам (2 блока по 5 встреч)</li>
-          </ul>
-          <div style="display: flex; gap: 1rem;">
-            <button onclick="openModal('rules')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline;">Правила работы</button>
-            <button onclick="openModal('ethics')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline;">Этика & Конфиденциальность</button>
-          </div>
+          <p style="margin-bottom: 0.8rem;">• <strong>Формат:</strong> Онлайн-встречи</p>
+          <p style="margin-bottom: 0.8rem;">• <strong>Длительность:</strong> 50 минут</p>
+          <p style="margin-bottom: 0.8rem;">• <strong>Основной цикл:</strong> 10 встреч</p>
+          <p style="margin-bottom: 0.8rem;">• <strong>Оплата:</strong> 2 блока по 5 встреч</p>
         </div>
       </div>
     </section>
 
     <section>
       <h2 class="section-title">Образование и квалификация</h2>
-      <div class="grid-4" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="grid-3">
         <div class="card">
           <h3>НИУ ВШЭ</h3>
           <p>Национальный исследовательский университет «Высшая школа экономики»</p>
@@ -476,61 +153,22 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
+    <footer>
+      <div class="grid-2">
         <div>
-          <div class="logo" style="margin-bottom: 1rem;">Роман Михайлович Салихов</div>
-          <p style="margin-bottom: 1rem;">Бизнес-психоаналитический коучинг и консультирование собственников бизнеса.</p>
-          <p>Телефон: <a href="tel:+79168886750" style="color: var(--text-main);">+7 916 888-67-50</a></p>
-          <p>Telegram: <a href="https://t.me/rs_199" style="color: var(--text-main);">@rs_199</a></p>
+          <h3 style="color: #fff; margin-bottom: 0.5rem;">Роман Михайлович Салихов</h3>
+          <p>Телефон: <a href="tel:+79168886750" style="color: #fff;">+7 916 888-67-50</a></p>
+          <p>Telegram: <a href="https://t.me/rs_199" style="color: #fff;">@rs_199</a></p>
         </div>
-        <div>
-          <h4 style="color: var(--text-main); margin-bottom: 1rem;">Навигация</h4>
-          <p><a href="#scenarios">С чем работаю</a></p>
-          <p><a href="#format">Формат</a></p>
-          <p><a href="#pricing">Стоимость</a></p>
-        </div>
-        <div class="legal-info">
-          <h4 style="color: var(--text-main); margin-bottom: 1rem;">Юридическая информация</h4>
+        <div style="text-align: right;">
           <p>ИП Салихов Р. М.</p>
           <p>© 2026 Все права защищены</p>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <div id="modal-rules" class="modal">
-    <div class="modal-content">
-      <button class="close-modal" onclick="closeModal('rules')">&times;</button>
-      <h3 style="margin-bottom: 1rem;">Правила работы</h3>
-      <p style="color: var(--text-muted); margin-bottom: 1rem;">Консультации проходят онлайн в заранее согласованное время. Отмена или перенос сессии возможны не позднее чем за 24 часа до её начала.</p>
-      <p style="color: var(--text-muted);">При опоздании время сессии не продлевается.</p>
-    </div>
   </div>
 
-  <div id="modal-ethics" class="modal">
-    <div class="modal-content">
-      <button class="close-modal" onclick="closeModal('ethics')">&times;</button>
-      <h3 style="margin-bottom: 1rem;">Конфиденциальность</h3>
-      <p style="color: var(--text-muted);">Вся информация, полученная в ходе встреч, является строго конфиденциальной и не подлежит разглашению третьим лицам ни при каких обстоятельствах.</p>
-    </div>
-  </div>
-
-  <script>
-    function openModal(id) {
-      document.getElementById('modal-' + id).style.display = 'flex';
-    }
-    function closeModal(id) {
-      document.getElementById('modal-' + id).style.display = 'none';
-    }
-    window.onclick = function(event) {
-      if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-      }
-    }
-  </script>
 </body>
 </html>
