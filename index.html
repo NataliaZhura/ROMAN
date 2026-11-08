@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Психолог Роман Салихов | Бизнес-консультирование и психотерапия</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        site: {
+                            heroBg: '#181818',       // Dark signature hero from annakan.me screenshot
+                            bodyBg: '#F3F0EC',       // Off-white light cream background
+                            cardBg: '#FFFFFF',
+                            accentRed: '#E53925',    // Red CTA button from screenshot
+                            accentRedHover: '#C62828',
+                            linkOrange: '#E06D53',   // Soft terracotta link color from screenshot text
+                            border: '#E2DDD7',
+                            textDark: '#1A1A1A',
+                            textMuted: '#555555'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #F3F0EC;
+            color: #1A1A1A;
+        }
+
+        /* Diagonal Hero Cut out matching image_4c0fff.jpg */
+        .hero-diagonal-container {
+            position: relative;
+            background-color: #181818;
+            overflow: hidden;
+        }
+
+        /* Responsive diagonal skew matching annakan.me design */
+        .hero-skew-clip {
+            clip-path: none;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-skew-clip {
+                clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+            }
+        }
+
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-site-bodyBg text-site-textDark font-sans antialiased selection:bg-site-accentRed selection:text-white flex flex-col min-h-screen">
+
+    <!-- Top Minimal Navigation -->
+    <header class="bg-site-heroBg border-b border-neutral-800 text-white sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tight hover:opacity-90 transition-opacity">
+                Роман Салихов
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-light text-neutral-300">
+                <a href="#about" class="hover:text-white transition-colors">Обо мне</a>
+                <a href="#education" class="hover:text-white transition-colors">Образование и опыт</a>
+                <button onclick="openPricingModal()" class="hover:text-white transition-colors">Стоимость</button>
+                <button onclick="openRulesModal()" class="hover:text-white transition-colors">Правила</button>
+                <a href="#booking" class="hover:text-white transition-colors">Контакты</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="https://t.me/rs_199" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-neutral-300 hover:text-white bg-neutral-800/80 hover:bg-neutral-800 px-3 py-2 rounded transition-all">
+                    <i data-lucide="send" class="w-3.5 h-3.5 text-site-accentRed"></i>
+                    <span>@rs_199</span>
+                </a>
+                <a href="#booking" class="px-6 py-2.5 bg-site-accentRed hover:bg-site-accentRedHover text-white text-sm font-medium rounded-sm transition-colors shadow-sm">
+                    Связаться
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- Hero Section (Exact visual replica of image_4c0fff.jpg with diagonal layout) -->
+        <section class="bg-[#181818] text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto min-h-[520px] lg:min-h-[580px] grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                
+                <!-- Left Dark Column with Text -->
+                <div class="lg:col-span-6 px-6 py-16 sm:px-12 sm:py-20 z-10 flex flex-col justify-center space-y-6">
+                    <div class="space-y-4">
+                        <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+                            Психолог<br>Роман Салихов
+                        </h1>
+                        <p class="text-base sm:text-lg text-neutral-300 font-light leading-relaxed max-w-md pt-1">
+                            Клинический и бизнес-психолог,<br>психоаналитический коуч
+                        </p>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#booking" class="inline-block px-8 py-3.5 bg-site-accentRed hover:bg-site-accentRedHover text-white text-base font-semibold rounded-sm transition-all shadow-md">
+                            Связаться
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column with Portrait Image and Diagonal Cutout -->
+                <div class="lg:col-span-6 relative w-full h-[450px] lg:h-full hero-skew-clip bg-neutral-900 overflow-hidden">
+                    <img src="photo_2026-02-05_13-46-48.jpg" 
+                         alt="Психолог Роман Салихов" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';"
+                         class="w-full h-full object-cover object-top scale-[1.01] transform transition-transform duration-700">
+                </div>
+
+            </div>
+
+            <!-- Scroll Down Indicator matching annakan.me -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:block">
+                <a href="#about" class="w-10 h-10 rounded-full bg-neutral-800/80 border border-neutral-700 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-neutral-700 transition-all">
+                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- "Обо мне" Section (Exact match of layout image_4c0fc0.png) -->
+        <section id="about" class="py-20 sm:py-24 bg-site-bodyBg">
+            <div class="max-w-4xl mx-auto px-6 sm:px-10 space-y-10">
+                
+                <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-site-textDark">
+                    Обо мне
+                </h2>
+
+                <div class="space-y-8 text-lg sm:text-xl font-normal leading-relaxed text-site-textDark">
+                    <p>
+                        Я работаю с индивидуальными клиентами и организациями. Психоаналитический подход и клиническая подготовка делают работу с затруднениями клиентов глубокой и целостной, позволяя выявить и бережно проработать их истинные причины.
+                    </p>
+
+                    <p>
+                        Получаю высшее образование в <span class="font-medium">«Высшей Школе Экономики» (НИУ-ВШЭ)</span> по направлению «Психоаналитическое бизнес-консультирование», имею профильную квалификацию и практическую подготовку в сфере клинической психологии.
+                    </p>
+
+                    <p>
+                        Ознакомьтесь с актуальной информацией про 
+                        <button onclick="openPricingModal()" class="text-site-linkOrange underline hover:opacity-80 font-medium transition-opacity">
+                            стоимость консультаций
+                        </button>, 
+                        а также прочитайте 
+                        <button onclick="openRulesModal()" class="text-site-linkOrange underline hover:opacity-80 font-medium transition-opacity">
+                            правила работы
+                        </button>.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Education & Credentials Section -->
+        <section id="education" class="py-16 bg-white border-y border-site-border">
+            <div class="max-w-4xl mx-auto px-6 sm:px-10 space-y-12">
+                
+                <div class="border-b border-site-border pb-6">
+                    <h2 class="text-3xl font-bold tracking-tight text-site-textDark">
+                        Образование и квалификация
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    
+                    <!-- Education Column -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold text-site-textDark border-l-4 border-site-accentRed pl-3">Образование</h3>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
+                                <span class="font-mono text-xs text-neutral-500 font-semibold block">2027 • Высшее</span>
+                                <h4 class="font-bold text-site-textDark text-base">«Высшая Школа Экономики» (НИУ-ВШЭ)</h4>
+                                <p class="text-neutral-600">Психоаналитическое бизнес-консультирование</p>
+                            </div>
+
+                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
+                                <span class="font-mono text-xs text-neutral-500 font-semibold block">2017 • Высшее</span>
+                                <h4 class="font-bold text-site-textDark text-base">«Высшая Школа Экономики» (НИУ-ВШЭ)</h4>
+                                <p class="text-neutral-600">Мировая политика</p>
+                            </div>
+
+                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
+                                <span class="font-mono text-xs text-neutral-500 font-semibold block">2024 – 2026 • Дополнительное</span>
+                                <h4 class="font-bold text-site-textDark text-base">Институт психотерапии и клинической психологии</h4>
+                                <p class="text-neutral-600">Курсы по клинической психологии, подготовке тренеров в области трансперсональной психологии и психотерапии, личные психотерапевтические группы</p>
+                            </div>
+
+                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
+                                <span class="font-mono text-xs text-neutral-500 font-semibold block">2025 • Дополнительное</span>
+                                <h4 class="font-bold text-site-textDark text-base">МГУ им. М.В. Ломоносова</h4>
+                                <p class="text-neutral-600">Основы психологии</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Column -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold text-site-textDark border-l-4 border-site-accentRed pl-3">Профессиональный опыт</h3>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
+                                <h4 class="font-bold text-site-textDark text-base">Маркетинг и продажи</h4>
+                                <p class="text-neutral-600">Фармацевтическая отрасль</p>
+                            </div>
+
+                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
+                                <h4 class="font-bold text-site-textDark text-base">Личный бизнес-ассистент</h4>
+                                <p class="text-neutral-600">Сопровождение руководителей и собственников бизнеса</p>
+                            </div>
+
+                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
+                                <h4 class="font-bold text-site-textDark text-base">Государственная и муниципальная служба</h4>
+                                <p class="text-neutral-600">Опыт работы в государственных органах управления</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Booking Section (Exact replica of image_4c0fc4.jpg with Split Image & Form) -->
+        <section id="booking" class="py-20 sm:py-24 bg-site-bodyBg">
+            <div class="max-w-6xl mx-auto px-6 sm:px-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch border border-site-border rounded-lg bg-white overflow-hidden shadow-sm">
+                    
+                    <!-- Left Column: Decorative Visual Element (Typewriter styled as image_4c0fc4.jpg) -->
+                    <div class="lg:col-span-5 bg-[#D5C5B5] relative min-h-[300px] lg:min-h-full flex items-center justify-center p-6">
+                        <div class="relative w-full h-full flex flex-col justify-between items-center text-center">
+                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Консультация психолога" 
+                                 class="w-full h-full object-cover rounded shadow-inner filter saturate-[0.85]">
+                            <div class="absolute inset-0 bg-black/10"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Clean Form Layout matching image_4c0fc4.jpg -->
+                    <div class="lg:col-span-7 p-8 sm:p-12 space-y-6">
+                        
+                        <div class="space-y-3">
+                            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-site-textDark">
+                                Записаться на консультацию
+                            </h2>
+                            <p class="text-sm sm:text-base text-neutral-600 leading-relaxed font-light">
+                                Кратко опишите, пожалуйста, ваш запрос. В ответ я предложу возможности для первичной консультации. Актуальная информация о стоимости консультаций — 
+                                <button onclick="openPricingModal()" class="text-site-linkOrange underline hover:opacity-80 font-medium">здесь</button>, также ознакомьтесь, пожалуйста, с 
+                                <button onclick="openRulesModal()" class="text-site-linkOrange underline hover:opacity-80 font-medium">правилами работы</button>.
+                            </p>
+                        </div>
+
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6 pt-2">
+                            <div>
+                                <label for="form-name" class="block text-xs font-semibold text-site-textDark mb-1.5">Ваше имя</label>
+                                <input type="text" id="form-name" required 
+                                    class="w-full px-0 py-2 border-b border-neutral-300 text-site-textDark text-sm focus:outline-none focus:border-site-textDark transition-colors bg-transparent">
+                            </div>
+
+                            <div>
+                                <label for="form-request" class="block text-xs font-semibold text-site-textDark mb-1.5">С чем бы вы хотели поработать?</label>
+                                <textarea id="form-request" rows="3" required 
+                                    class="w-full px-0 py-2 border-b border-neutral-300 text-site-textDark text-sm focus:outline-none focus:border-site-textDark transition-colors bg-transparent resize-none"></textarea>
+                            </div>
+
+                            <div>
+                                <label for="form-email" class="block text-xs font-semibold text-site-textDark mb-1.5">Укажите вашу электронную почту для ответа</label>
+                                <input type="email" id="form-email" required 
+                                    class="w-full px-0 py-2 border-b border-neutral-300 text-site-textDark text-sm focus:outline-none focus:border-site-textDark transition-colors bg-transparent">
+                            </div>
+
+                            <div>
+                                <label for="form-product" class="block text-xs font-semibold text-site-textDark mb-1.5">Выберите услугу</label>
+                                <select id="form-product" class="w-full px-0 py-2 border-b border-neutral-300 text-site-textDark text-sm focus:outline-none focus:border-site-textDark transition-colors bg-transparent">
+                                    <option value="Психологическая консультация">Психологическая консультация</option>
+                                    <option value="Психоаналитическое бизнес-консультирование">Психоаналитическое бизнес-консультирование</option>
+                                </select>
+                            </div>
+
+                            <div class="pt-4 space-y-4">
+                                <button type="submit" class="px-8 py-3.5 bg-site-accentRed hover:bg-site-accentRedHover text-white text-sm font-semibold rounded-sm transition-all shadow-sm">
+                                    Отправить
+                                </button>
+
+                                <div class="flex items-start gap-2">
+                                    <input type="checkbox" id="form-consent" required class="mt-1 accent-site-accentRed">
+                                    <label for="form-consent" class="text-[11px] text-neutral-500 font-light leading-tight">
+                                        Я даю согласие на обработку персональных данных и подтверждаю, что ознакомлен(а) с правилами работы.
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Form Submission Success Feedback -->
+                        <div id="form-success" class="hidden py-8 space-y-3 text-center border border-emerald-200 bg-emerald-50 rounded p-6">
+                            <i data-lucide="check-circle" class="w-10 h-10 text-emerald-600 mx-auto"></i>
+                            <h3 class="text-lg font-bold text-emerald-900">Ваша заявка принята</h3>
+                            <p class="text-xs text-emerald-700">Роман Салихов ответит вам на указанный email в ближайшее время.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal 1: Правила работы -->
+    <div id="modal-rules" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-backdrop fixed inset-0" onclick="closeRulesModal()"></div>
+        <div class="relative bg-white rounded border border-site-border max-w-xl w-full p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeRulesModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-800 p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold text-site-textDark border-b pb-3">Правила работы</h3>
+                
+                <div class="space-y-4 text-sm text-neutral-700 font-light leading-relaxed">
+                    <p><strong class="font-semibold text-site-textDark">1. Конфиденциальность:</strong> Абсолютная сохранность всех данных и темы беседы в рамках профессиональной этики психотерапии.</p>
+                    <p><strong class="font-semibold text-site-textDark">2. Длительность:</strong> Сессия длится 50 минут.</p>
+                    <p><strong class="font-semibold text-site-textDark">3. Отмена встреч:</strong> Перенос или отмена консультации происходят не менее чем за 24 часа до назначенного времени.</p>
+                    <p><strong class="font-semibold text-site-textDark">4. Формат:</strong> Онлайн по всему миру или очно по договоренности.</p>
+                </div>
+
+                <div class="pt-2 flex justify-end">
+                    <button onclick="closeRulesModal()" class="px-6 py-2 bg-site-textDark text-white text-xs font-semibold rounded-sm uppercase tracking-wider">
+                        Закрыть
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Стоимость консультаций -->
+    <div id="modal-pricing" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="modal-backdrop fixed inset-0" onclick="closePricingModal()"></div>
+        <div class="relative bg-white rounded border border-site-border max-w-xl w-full p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
+            <button onclick="closePricingModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-800 p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="space-y-6">
+                <h3 class="text-2xl font-bold text-site-textDark border-b pb-3">Стоимость консультаций</h3>
+                
+                <div class="space-y-4 text-sm">
+                    <div class="p-4 bg-site-bodyBg rounded space-y-1">
+                        <h4 class="font-bold text-site-textDark">Индивидуальная психологическая консультация</h4>
+                        <p class="text-xs text-neutral-600">50 минут (Онлайн / Очно)</p>
+                        <p class="text-sm font-mono font-semibold text-site-accentRed mt-2">По запросу</p>
+                    </div>
+
+                    <div class="p-4 bg-site-bodyBg rounded space-y-1">
+                        <h4 class="font-bold text-site-textDark">Психоаналитическое бизнес-консультирование</h4>
+                        <p class="text-xs text-neutral-600">Для топ-менеджеров и предпринимателей (50 минут)</p>
+                        <p class="text-sm font-mono font-semibold text-site-accentRed mt-2">По запросу</p>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex justify-between items-center">
+                    <a href="https://t.me/rs_199" target="_blank" class="text-xs font-mono text-site-linkOrange hover:underline">
+                        Написать в Telegram: @rs_199
+                    </a>
+                    <button onclick="closePricingModal()" class="px-6 py-2 bg-site-textDark text-white text-xs font-semibold rounded-sm uppercase tracking-wider">
+                        Закрыть
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-site-heroBg text-white py-12 text-xs font-light border-t border-neutral-800">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div class="space-y-1.5 text-left">
+                <span class="text-base font-bold text-white block">ИП Салихов Роман Михайлович</span>
+                <p class="text-neutral-400 font-mono text-[11px] leading-relaxed">
+                    ИНН: 770000000000 | ОГРНИП: 320000000000000
+                </p>
+                <p class="text-neutral-500 text-[11px]">Психолог, бизнес-консультант</p>
+            </div>
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 font-mono text-neutral-300">
+                <a href="tel:+79168886750" class="hover:text-white transition-colors">+7 (916) 888-67-50</a>
+                <a href="https://t.me/rs_199" target="_blank" class="hover:text-white transition-colors">Telegram: @rs_199</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script handlers -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        function openRulesModal() {
+            document.getElementById('modal-rules').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeRulesModal() {
+            document.getElementById('modal-rules').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openPricingModal() {
+            document.getElementById('modal-pricing').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closePricingModal() {
+            document.getElementById('modal-pricing').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            document.getElementById('contact-form').classList.add('hidden');
+            document.getElementById('form-success').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
