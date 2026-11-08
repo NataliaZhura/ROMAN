@@ -9,18 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-white: #FFFFFF;
-      --bg-light-gray: #F8F9FA;
-      --bg-dark-ebony: #111317;
-      --bg-dark-card: #181B22;
-      --text-dark: #111317;
-      --text-muted: #5F6368;
-      --text-light: #F0F2F5;
-      --text-light-muted: #9AA0A6;
+      --bg-dark: #111317;
+      --bg-card-dark: #181B22;
+      --bg-light: #F4F5F7;
+      --bg-card-light: #FFFFFF;
       --accent: #E65100;
       --accent-hover: #D84315;
-      --border-light: #E2E8F0;
+      --text-main-dark: #F0F2F5;
+      --text-muted-dark: #9AA0A6;
+      --text-main-light: #111317;
+      --text-muted-light: #5F6368;
       --border-dark: #2A2E39;
+      --border-light: #E2E8F0;
       --font-heading: 'Cinzel', serif;
       --font-body: 'Inter', sans-serif;
     }
@@ -37,8 +37,8 @@
     }
 
     body {
-      background-color: var(--bg-white);
-      color: var(--text-dark);
+      background-color: var(--bg-dark);
+      color: var(--text-main-dark);
       font-family: var(--font-body);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -56,9 +56,9 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-light);
+      background: rgba(17, 19, 23, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dark);
     }
 
     .nav-container {
@@ -73,39 +73,39 @@
 
     .logo {
       font-family: var(--font-heading);
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      color: var(--text-dark);
+      letter-spacing: 0.05em;
       white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: var(--text-muted-dark);
       transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--text-dark);
+      color: var(--text-main-dark);
     }
 
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.8rem;
     }
 
     .btn-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.65rem 1.2rem;
+      padding: 0.75rem 1.4rem;
       background: var(--accent);
       color: #FFFFFF;
       font-weight: 500;
@@ -113,7 +113,7 @@
       border: none;
       cursor: pointer;
       transition: background 0.2s;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       white-space: nowrap;
     }
 
@@ -121,24 +121,23 @@
       background: var(--accent-hover);
     }
 
-    .btn-secondary {
+    .btn-secondary-dark {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.65rem 1.2rem;
-      background: #111317;
-      color: #FFFFFF;
-      font-weight: 500;
+      padding: 0.75rem 1.4rem;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main-dark);
+      border: 1px solid var(--border-dark);
       border-radius: 6px;
-      border: none;
-      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.88rem;
       transition: background 0.2s;
-      font-size: 0.85rem;
       white-space: nowrap;
     }
 
-    .btn-secondary:hover {
-      background: #2A2E39;
+    .btn-secondary-dark:hover {
+      background: rgba(255, 255, 255, 0.12);
     }
 
     .container {
@@ -147,52 +146,51 @@
       padding: 0 1.5rem;
     }
 
-    /* 1. HERO SECTION */
+    /* 1. HERO SECTION (ТЕМНАЯ) */
     .hero-section {
-      padding: 130px 0 60px;
-      background-color: var(--bg-white);
+      padding: 150px 0 80px;
+      background-color: var(--bg-dark);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 2.5rem;
+      gap: 3rem;
       align-items: center;
     }
 
     .hero-content h1 {
       font-family: var(--font-heading);
-      font-size: 2.4rem;
-      line-height: 1.25;
-      margin-bottom: 1.2rem;
+      font-size: 2.7rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
       font-weight: 600;
-      color: var(--text-dark);
     }
 
     .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
+      font-size: 1.1rem;
+      color: var(--text-muted-dark);
+      margin-bottom: 2rem;
     }
 
     .hero-meta {
       display: inline-block;
-      padding: 0.3rem 0.7rem;
-      background: rgba(230, 81, 0, 0.1);
-      border: 1px solid rgba(230, 81, 0, 0.3);
+      padding: 0.4rem 0.8rem;
+      background: rgba(230, 81, 0, 0.15);
+      border: 1px solid rgba(230, 81, 0, 0.4);
       color: var(--accent);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       border-radius: 4px;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-image-box {
       border-radius: 12px;
       overflow: hidden;
-      height: 480px;
-      background: #F4F5F7;
-      border: 1px solid var(--border-light);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      height: 500px;
+      background: var(--bg-card-dark);
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
 
     .hero-image-box img {
@@ -203,128 +201,127 @@
       display: block;
     }
 
-    /* 2. ТЕМНАЯ СЕКЦИЯ («С чем можно прийти») */
+    /* 2. С ЧЕМ МОЖНО ПРИЙТИ (ТЕМНАЯ) */
     .section-dark {
-      background-color: var(--bg-dark-ebony);
-      color: var(--text-light);
-      padding: 80px 0;
+      padding: 90px 0;
+      border-top: 1px solid var(--border-dark);
     }
 
-    .section-dark .section-title {
+    .section-title-dark {
       font-family: var(--font-heading);
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-      color: var(--text-light);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
     }
 
-    .section-dark .section-desc {
-      color: var(--text-light-muted);
-      font-size: 0.95rem;
-      margin-bottom: 2.5rem;
+    .section-desc-dark {
+      color: var(--text-muted-dark);
+      font-size: 1rem;
+      margin-bottom: 3rem;
       max-width: 600px;
     }
 
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.2rem;
+      gap: 1.5rem;
     }
 
-    .grid-3 {
+    .grid-education {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
+      gap: 1.5rem;
     }
 
     .card-dark {
-      background: var(--bg-dark-card);
+      background: var(--bg-card-dark);
       border: 1px solid var(--border-dark);
-      padding: 2rem;
+      padding: 2.2rem;
       border-radius: 8px;
     }
 
     .card-num {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       color: var(--accent);
       font-weight: 600;
       margin-bottom: 0.8rem;
     }
 
     .card-dark h3 {
-      font-size: 1.15rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
     }
 
     .card-dark p {
-      color: var(--text-light-muted);
-      font-size: 0.9rem;
+      color: var(--text-muted-dark);
+      font-size: 0.95rem;
     }
 
     /* 3. СВЕТЛАЯ СЕКЦИЯ («Формат работы / Запись») */
-    .section-light-subtle {
-      background-color: var(--bg-light-gray);
-      padding: 80px 0;
+    .section-light {
+      background-color: var(--bg-light);
+      color: var(--text-main-light);
+      padding: 90px 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
     }
 
-    .section-title-dark {
+    .section-title-light {
       font-family: var(--font-heading);
-      font-size: 2rem;
-      margin-bottom: 0.8rem;
-      color: var(--text-dark);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-main-light);
     }
 
-    .section-desc-dark {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 2.5rem;
+    .section-desc-light {
+      color: var(--text-muted-light);
+      font-size: 1rem;
+      margin-bottom: 3rem;
       max-width: 600px;
     }
 
     .booking-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 2.5rem;
       align-items: center;
     }
 
     .booking-card {
-      background: #FFFFFF;
+      background: var(--bg-card-light);
       border: 1px solid var(--border-light);
       border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      padding: 2.8rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
     }
 
     .booking-card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
-      color: var(--text-dark);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--text-main-light);
     }
 
     .booking-card p {
-      color: var(--text-muted);
+      color: var(--text-muted-light);
       margin-bottom: 1.2rem;
     }
 
     .price-tag {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 600;
-      color: var(--text-dark);
+      color: var(--text-main-light);
       margin: 1.2rem 0;
     }
 
     .price-tag span {
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: var(--text-muted-light);
       font-weight: normal;
     }
 
     .booking-image-box {
       border-radius: 12px;
       overflow: hidden;
-      height: 420px;
+      height: 440px;
       border: 1px solid var(--border-light);
     }
 
@@ -337,12 +334,12 @@
 
     .btn-dual-group {
       display: flex;
-      gap: 0.8rem;
+      gap: 1rem;
       flex-wrap: wrap;
       margin-top: 1.2rem;
     }
 
-    /* Modal Windows */
+    /* Modals */
     .modal {
       display: none;
       position: fixed;
@@ -358,14 +355,14 @@
     }
 
     .modal-content {
-      background: #FFFFFF;
+      background: var(--bg-card-light);
       border: 1px solid var(--border-light);
       max-width: 550px;
       width: 100%;
       padding: 2rem;
       border-radius: 12px;
       position: relative;
-      color: var(--text-dark);
+      color: var(--text-main-light);
     }
 
     .close-modal {
@@ -374,30 +371,30 @@
       right: 1.2rem;
       background: none;
       border: none;
-      color: var(--text-muted);
+      color: var(--text-muted-light);
       font-size: 1.4rem;
       cursor: pointer;
     }
 
     /* Footer */
     footer {
-      background-color: var(--bg-dark-ebony);
-      color: var(--text-light-muted);
-      padding: 50px 0 35px;
+      border-top: 1px solid var(--border-dark);
+      padding: 60px 0 40px;
+      color: var(--text-muted-dark);
       font-size: 0.85rem;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1.5fr;
-      gap: 2.5rem;
+      gap: 3rem;
     }
 
     .legal-block {
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    /* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
+    /* --- МОБИЛЬНАЯ АДАПТАЦИЯ (СТРОГО 1 КОЛОНКА) --- */
     @media (max-width: 900px) {
       .nav-links {
         display: none;
@@ -406,18 +403,18 @@
       .hero-grid, 
       .booking-grid, 
       .grid-2, 
-      .grid-3, 
+      .grid-education, 
       .footer-grid {
         grid-template-columns: 1fr !important;
-        gap: 1.5rem;
+        gap: 1.2rem;
       }
 
       .hero-section {
-        padding: 100px 0 40px;
+        padding: 110px 0 40px;
       }
 
       .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
       }
 
       .hero-image-box {
@@ -425,11 +422,15 @@
       }
 
       .booking-image-box {
-        height: 280px;
+        height: 260px;
       }
 
       .booking-card {
         padding: 1.8rem;
+      }
+
+      .card-dark {
+        padding: 1.5rem;
       }
 
       .btn-dual-group {
@@ -441,8 +442,8 @@
         text-align: center;
       }
 
-      .header-actions .btn-secondary {
-        display: none; /* На мобильных оставляем только главную кнопку Telegram */
+      .header-actions .btn-secondary-dark {
+        display: none;
       }
     }
   </style>
@@ -460,13 +461,13 @@
       </ul>
       <div class="header-actions">
         <a href="https://t.me/rs_199" target="_blank" class="btn-primary">Telegram @rs_199</a>
-        <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary">Почта</a>
+        <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary-dark">Почта</a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- 1. HERO SECTION (Светлая) -->
+    <!-- 1. HERO SECTION (ТЕМНАЯ) -->
     <section class="hero-section">
       <div class="container">
         <div class="hero-grid">
@@ -477,7 +478,7 @@
             
             <div class="btn-dual-group">
               <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="padding: 0.9rem 1.6rem;">Записаться в Telegram</a>
-              <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary" style="padding: 0.9rem 1.6rem;">Записаться по почте</a>
+              <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary-dark" style="padding: 0.9rem 1.6rem;">Записаться по почте</a>
             </div>
           </div>
           <div class="hero-image-box">
@@ -487,11 +488,11 @@
       </div>
     </section>
 
-    <!-- 2. С ЧЕМ МОЖНО ПРИЙТИ (Темная) -->
+    <!-- 2. С ЧЕМ МОЖНО ПРИЙТИ (ТЕМНАЯ) -->
     <section id="scenarios" class="section-dark">
       <div class="container">
-        <h2 class="section-title">С чем можно прийти</h2>
-        <p class="section-desc">Рабочий запрос начинается с конкретного затруднения в управлении или развитии бизнеса.</p>
+        <h2 class="section-title-dark">С чем можно прийти</h2>
+        <p class="section-desc-dark">Рабочий запрос начинается с конкретного затруднения в управлении или развитии бизнеса.</p>
         
         <div class="grid-2">
           <div class="card-dark">
@@ -518,11 +519,11 @@
       </div>
     </section>
 
-    <!-- 3. ФОРМАТ И ЗАПИСЬ (Светлая) -->
-    <section id="format" class="section-light-subtle">
+    <!-- 3. ФОРМАТ И ЗАПИСЬ (СВЕТЛАЯ СЕКЦИЯ С КАРТИНКОЙ) -->
+    <section id="format" class="section-light">
       <div class="container">
-        <h2 class="section-title-dark">Формат работы и запись</h2>
-        <p class="section-desc-dark">Первичный шаг — диагностическая 30-минутная встреча для уточнения запроса.</p>
+        <h2 class="section-title-light">Формат работы и запись</h2>
+        <p class="section-desc-light">Первичный шаг — диагностическая 30-минутная встреча для уточнения запроса.</p>
 
         <div class="booking-grid">
           <div class="booking-card">
@@ -532,14 +533,14 @@
             
             <div class="price-tag">8 000 ₽ <span>/ сессия (50 мин)</span></div>
 
-            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+            <p style="font-size: 0.88rem; color: var(--text-muted-light); margin-bottom: 1.2rem;">
               • Цикл: 10 встреч (оплата по 5 встреч)<br>
               • Конфиденциальность гарантируется
             </p>
 
             <div class="btn-dual-group">
               <a href="https://t.me/rs_199" target="_blank" class="btn-primary" style="flex: 1; text-align: center;">Запись в Telegram</a>
-              <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary" style="flex: 1; text-align: center;">Запись по Email</a>
+              <a href="mailto:salikhov.roman@gmail.com" class="btn-secondary-dark" style="flex: 1; text-align: center; background: #111317; color: #FFF;">Запись по Email</a>
             </div>
 
             <div style="display: flex; gap: 1rem; margin-top: 1.2rem;">
@@ -549,17 +550,17 @@
           </div>
 
           <div class="booking-image-box">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Кабинет и атмосфера">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Атмосфера сессии">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. ОБРАЗОВАНИЕ (Темная) -->
+    <!-- 4. ОБРАЗОВАНИЕ (ТЕМНАЯ) -->
     <section id="education" class="section-dark">
       <div class="container">
-        <h2 class="section-title">Образование и квалификация</h2>
-        <div class="grid-3">
+        <h2 class="section-title-dark">Образование и квалификация</h2>
+        <div class="grid-education">
           <div class="card-dark">
             <h3>НИУ ВШЭ</h3>
             <p>Национальный исследовательский университет «Высшая школа экономики»</p>
@@ -584,18 +585,18 @@
         <div>
           <div class="logo" style="margin-bottom: 0.8rem; color: #FFF;">Роман Михайлович Салихов</div>
           <p style="margin-bottom: 0.4rem;">Бизнес-психоаналитический коучинг и консультирование собственников бизнеса.</p>
-          <p>Телефон: <a href="tel:+79168886750" style="color: var(--text-light);">+7 916 888-67-50</a></p>
-          <p>Telegram: <a href="https://t.me/rs_199" style="color: var(--text-light);">@rs_199</a></p>
-          <p>Email: <a href="mailto:salikhov.roman@gmail.com" style="color: var(--text-light);">salikhov.roman@gmail.com</a></p>
+          <p>Телефон: <a href="tel:+79168886750" style="color: var(--text-main-dark);">+7 916 888-67-50</a></p>
+          <p>Telegram: <a href="https://t.me/rs_199" style="color: var(--text-main-dark);">@rs_199</a></p>
+          <p>Email: <a href="mailto:salikhov.roman@gmail.com" style="color: var(--text-main-dark);">salikhov.roman@gmail.com</a></p>
         </div>
         <div>
-          <h4 style="color: var(--text-light); margin-bottom: 0.8rem;">Навигация</h4>
+          <h4 style="color: var(--text-main-dark); margin-bottom: 0.8rem;">Навигация</h4>
           <p><a href="#scenarios">С чем работаю</a></p>
           <p><a href="#format">Запись и тарифы</a></p>
           <p><a href="#education">Образование</a></p>
         </div>
         <div class="legal-block">
-          <h4 style="color: var(--text-light); margin-bottom: 0.8rem;">Юридическая информация</h4>
+          <h4 style="color: var(--text-main-dark); margin-bottom: 0.8rem;">Юридическая информация</h4>
           <p>ИП Салихов Роман Михайлович</p>
           <p>ИНН: 771234567890</p>
           <p>ОГРНИП: 321774600000000</p>
@@ -610,8 +611,8 @@
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('rules')">&times;</button>
       <h3 style="margin-bottom: 0.8rem;">Правила работы</h3>
-      <p style="color: var(--text-muted); margin-bottom: 0.8rem;">Консультации проходят онлайн в заранее согласованное время. Отмена или перенос сессии возможны не позднее чем за 24 часа до её начала.</p>
-      <p style="color: var(--text-muted);">При опоздании время сессии не продлевается.</p>
+      <p style="color: var(--text-muted-light); margin-bottom: 0.8rem;">Консультации проходят онлайн в заранее согласованное время. Отмена или перенос сессии возможны не позднее чем за 24 часа до её начала.</p>
+      <p style="color: var(--text-muted-light);">При опоздании время сессии не продлевается.</p>
     </div>
   </div>
 
@@ -619,7 +620,7 @@
     <div class="modal-content">
       <button class="close-modal" onclick="closeModal('ethics')">&times;</button>
       <h3 style="margin-bottom: 0.8rem;">Конфиденциальность</h3>
-      <p style="color: var(--text-muted);">Вся информация, полученная в ходе встреч, является строго конфиденциальной и не подлежит разглашению третьим лицам ни при каких обстоятельствах.</p>
+      <p style="color: var(--text-muted-light);">Вся информация, полученная в ходе встреч, является строго конфиденциальной и не подлежит разглашению третьим лицам ни при каких обстоятельствах.</p>
     </div>
   </div>
 
