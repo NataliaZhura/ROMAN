@@ -1,438 +1,556 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Психолог Роман Салихов | Бизнес-консультирование и психотерапия</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        site: {
-                            heroBg: '#181818',       // Dark signature hero from annakan.me screenshot
-                            bodyBg: '#F3F0EC',       // Off-white light cream background
-                            cardBg: '#FFFFFF',
-                            accentRed: '#E53925',    // Red CTA button from screenshot
-                            accentRedHover: '#C62828',
-                            linkOrange: '#E06D53',   // Soft terracotta link color from screenshot text
-                            border: '#E2DDD7',
-                            textDark: '#1A1A1A',
-                            textMuted: '#555555'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-                        serif: ['Playfair Display', 'Georgia', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            background-color: #F3F0EC;
-            color: #1A1A1A;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Роман Салихов | Бизнес-психолог и Executive-коуч</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #111317;
+      --bg-card: #181B22;
+      --bg-card-hover: #20242D;
+      --accent: #E65100;
+      --accent-hover: #F57C00;
+      --text-main: #F0F2F5;
+      --text-muted: #9AA0A6;
+      --border: #2A2E39;
+      --font-heading: 'Cinzel', serif;
+      --font-body: 'Inter', sans-serif;
+    }
 
-        /* Diagonal Hero Cut out matching image_4c0fff.jpg */
-        .hero-diagonal-container {
-            position: relative;
-            background-color: #181818;
-            overflow: hidden;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Responsive diagonal skew matching annakan.me design */
-        .hero-skew-clip {
-            clip-path: none;
-        }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        @media (min-width: 1024px) {
-            .hero-skew-clip {
-                clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
-            }
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .modal-backdrop {
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-        }
-    </style>
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(17, 19, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-tg {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+
+    .btn-tg:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--text-muted);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 500;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 160px 0 100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .hero-meta {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      background: rgba(230, 81, 0, 0.1);
+      border: 1px solid rgba(230, 81, 0, 0.3);
+      color: var(--accent);
+      font-size: 0.85rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Section Global */
+    section {
+      padding: 90px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+
+    /* Scenarios Grid */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      border-radius: 8px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .card-num {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Process Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .step-item {
+      position: relative;
+    }
+
+    .step-item h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-item p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Pricing Section */
+    .pricing-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .pricing-details h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .price-tag {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin: 1.5rem 0;
+    }
+
+    .price-tag span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: normal;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features li {
+      padding: 0.5rem 0;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Modals */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      max-width: 600px;
+      width: 100%;
+      padding: 2.5rem;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 60px 0 30px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .legal-info {
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .pricing-box, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-4, .steps {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body class="bg-site-bodyBg text-site-textDark font-sans antialiased selection:bg-site-accentRed selection:text-white flex flex-col min-h-screen">
+<body>
 
-    <!-- Top Minimal Navigation -->
-    <header class="bg-site-heroBg border-b border-neutral-800 text-white sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-tight hover:opacity-90 transition-opacity">
-                Роман Салихов
-            </a>
-
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-light text-neutral-300">
-                <a href="#about" class="hover:text-white transition-colors">Обо мне</a>
-                <a href="#education" class="hover:text-white transition-colors">Образование и опыт</a>
-                <button onclick="openPricingModal()" class="hover:text-white transition-colors">Стоимость</button>
-                <button onclick="openRulesModal()" class="hover:text-white transition-colors">Правила</button>
-                <a href="#booking" class="hover:text-white transition-colors">Контакты</a>
-            </nav>
-
-            <div class="flex items-center gap-4">
-                <a href="https://t.me/rs_199" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-neutral-300 hover:text-white bg-neutral-800/80 hover:bg-neutral-800 px-3 py-2 rounded transition-all">
-                    <i data-lucide="send" class="w-3.5 h-3.5 text-site-accentRed"></i>
-                    <span>@rs_199</span>
-                </a>
-                <a href="#booking" class="px-6 py-2.5 bg-site-accentRed hover:bg-site-accentRedHover text-white text-sm font-medium rounded-sm transition-colors shadow-sm">
-                    Связаться
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main class="flex-grow">
-        
-        <!-- Hero Section (Exact visual replica of image_4c0fff.jpg with diagonal layout) -->
-        <section class="bg-[#181818] text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto min-h-[520px] lg:min-h-[580px] grid grid-cols-1 lg:grid-cols-12 items-stretch">
-                
-                <!-- Left Dark Column with Text -->
-                <div class="lg:col-span-6 px-6 py-16 sm:px-12 sm:py-20 z-10 flex flex-col justify-center space-y-6">
-                    <div class="space-y-4">
-                        <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.1]">
-                            Психолог<br>Роман Салихов
-                        </h1>
-                        <p class="text-base sm:text-lg text-neutral-300 font-light leading-relaxed max-w-md pt-1">
-                            Клинический и бизнес-психолог,<br>психоаналитический коуч
-                        </p>
-                    </div>
-
-                    <div class="pt-4">
-                        <a href="#booking" class="inline-block px-8 py-3.5 bg-site-accentRed hover:bg-site-accentRedHover text-white text-base font-semibold rounded-sm transition-all shadow-md">
-                            Связаться
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right Column with Portrait Image and Diagonal Cutout -->
-                <div class="lg:col-span-6 relative w-full h-[450px] lg:h-full hero-skew-clip bg-neutral-900 overflow-hidden">
-                    <img src="photo_2026-02-05_13-46-48.jpg" 
-                         alt="Психолог Роман Салихов" 
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80';"
-                         class="w-full h-full object-cover object-top scale-[1.01] transform transition-transform duration-700">
-                </div>
-
-            </div>
-
-            <!-- Scroll Down Indicator matching annakan.me -->
-            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:block">
-                <a href="#about" class="w-10 h-10 rounded-full bg-neutral-800/80 border border-neutral-700 flex items-center justify-center text-neutral-300 hover:text-white hover:bg-neutral-700 transition-all">
-                    <i data-lucide="chevron-down" class="w-5 h-5"></i>
-                </a>
-            </div>
-        </section>
-
-        <!-- "Обо мне" Section (Exact match of layout image_4c0fc0.png) -->
-        <section id="about" class="py-20 sm:py-24 bg-site-bodyBg">
-            <div class="max-w-4xl mx-auto px-6 sm:px-10 space-y-10">
-                
-                <h2 class="text-4xl sm:text-5xl font-bold tracking-tight text-site-textDark">
-                    Обо мне
-                </h2>
-
-                <div class="space-y-8 text-lg sm:text-xl font-normal leading-relaxed text-site-textDark">
-                    <p>
-                        Я работаю с индивидуальными клиентами и организациями. Психоаналитический подход и клиническая подготовка делают работу с затруднениями клиентов глубокой и целостной, позволяя выявить и бережно проработать их истинные причины.
-                    </p>
-
-                    <p>
-                        Получаю высшее образование в <span class="font-medium">«Высшей Школе Экономики» (НИУ-ВШЭ)</span> по направлению «Психоаналитическое бизнес-консультирование», имею профильную квалификацию и практическую подготовку в сфере клинической психологии.
-                    </p>
-
-                    <p>
-                        Ознакомьтесь с актуальной информацией про 
-                        <button onclick="openPricingModal()" class="text-site-linkOrange underline hover:opacity-80 font-medium transition-opacity">
-                            стоимость консультаций
-                        </button>, 
-                        а также прочитайте 
-                        <button onclick="openRulesModal()" class="text-site-linkOrange underline hover:opacity-80 font-medium transition-opacity">
-                            правила работы
-                        </button>.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Education & Credentials Section -->
-        <section id="education" class="py-16 bg-white border-y border-site-border">
-            <div class="max-w-4xl mx-auto px-6 sm:px-10 space-y-12">
-                
-                <div class="border-b border-site-border pb-6">
-                    <h2 class="text-3xl font-bold tracking-tight text-site-textDark">
-                        Образование и квалификация
-                    </h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    
-                    <!-- Education Column -->
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-bold text-site-textDark border-l-4 border-site-accentRed pl-3">Образование</h3>
-
-                        <div class="space-y-4 text-sm">
-                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
-                                <span class="font-mono text-xs text-neutral-500 font-semibold block">2027 • Высшее</span>
-                                <h4 class="font-bold text-site-textDark text-base">«Высшая Школа Экономики» (НИУ-ВШЭ)</h4>
-                                <p class="text-neutral-600">Психоаналитическое бизнес-консультирование</p>
-                            </div>
-
-                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
-                                <span class="font-mono text-xs text-neutral-500 font-semibold block">2017 • Высшее</span>
-                                <h4 class="font-bold text-site-textDark text-base">«Высшая Школа Экономики» (НИУ-ВШЭ)</h4>
-                                <p class="text-neutral-600">Мировая политика</p>
-                            </div>
-
-                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
-                                <span class="font-mono text-xs text-neutral-500 font-semibold block">2024 – 2026 • Дополнительное</span>
-                                <h4 class="font-bold text-site-textDark text-base">Институт психотерапии и клинической психологии</h4>
-                                <p class="text-neutral-600">Курсы по клинической психологии, подготовке тренеров в области трансперсональной психологии и психотерапии, личные психотерапевтические группы</p>
-                            </div>
-
-                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
-                                <span class="font-mono text-xs text-neutral-500 font-semibold block">2025 • Дополнительное</span>
-                                <h4 class="font-bold text-site-textDark text-base">МГУ им. М.В. Ломоносова</h4>
-                                <p class="text-neutral-600">Основы психологии</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Experience Column -->
-                    <div class="space-y-6">
-                        <h3 class="text-xl font-bold text-site-textDark border-l-4 border-site-accentRed pl-3">Профессиональный опыт</h3>
-
-                        <div class="space-y-4 text-sm">
-                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
-                                <h4 class="font-bold text-site-textDark text-base">Маркетинг и продажи</h4>
-                                <p class="text-neutral-600">Фармацевтическая отрасль</p>
-                            </div>
-
-                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
-                                <h4 class="font-bold text-site-textDark text-base">Личный бизнес-ассистент</h4>
-                                <p class="text-neutral-600">Сопровождение руководителей и собственников бизнеса</p>
-                            </div>
-
-                            <div class="p-4 rounded bg-site-bodyBg space-y-1">
-                                <h4 class="font-bold text-site-textDark text-base">Государственная и муниципальная служба</h4>
-                                <p class="text-neutral-600">Опыт работы в государственных органах управления</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Booking Section (Exact replica of image_4c0fc4.jpg with Split Image & Form) -->
-        <section id="booking" class="py-20 sm:py-24 bg-site-bodyBg">
-            <div class="max-w-6xl mx-auto px-6 sm:px-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch border border-site-border rounded-lg bg-white overflow-hidden shadow-sm">
-                    
-                    <!-- Left Column: Decorative Visual Element (Typewriter styled as image_4c0fc4.jpg) -->
-                    <div class="lg:col-span-5 bg-[#D5C5B5] relative min-h-[300px] lg:min-h-full flex items-center justify-center p-6">
-                        <div class="relative w-full h-full flex flex-col justify-between items-center text-center">
-                            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" 
-                                 alt="Консультация психолога" 
-                                 class="w-full h-full object-cover rounded shadow-inner filter saturate-[0.85]">
-                            <div class="absolute inset-0 bg-black/10"></div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Clean Form Layout matching image_4c0fc4.jpg -->
-                    <div class="lg:col-span-7 p-8 sm:p-12 space-y-6">
-                        
-                        <div class="space-y-3">
-                            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-site-textDark">
-                                Записаться на консультацию
-                            </h2>
-                            <p class="text-sm sm:text-base text-neutral-600 leading-relaxed font-light">
-                                Кратко опишите, пожалуйста, ваш запрос. В ответ я предложу возможности для первичной консультации. Актуальная информация о стоимости консультаций — 
-                                <button onclick="openPricingModal()" class="text-site-linkOrange underline hover:opacity-80 font-medium">здесь</button>, также ознакомьтесь, пожалуйста, с 
-                                <button onclick="openRulesModal()" class="text-site-linkOrange underline hover:opacity-80 font-medium">правилами работы</button>.
-                            </p>
-                        </div>
-
-                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6 pt-2">
-                            <div>
-                                <label for="form-name" class="block text-xs font-semibold text-site-textDark mb-1.5">Ваше имя</label>
-                                <input type="text" id="form-name" required 
-                                    class="w-full px-0 py-2 border-b border-neutral-300 text-site-textDark text-sm focus:outline-none focus:border-site-textDark transition-colors bg-transparent">
-                            </div>
-
-                            <div>
-                                <label for="form-request" class="block text-xs font-semibold text-site-textDark mb-1.5">С чем бы вы хотели поработать?</label>
-                                <textarea id="form-request" rows="3" required 
-                                    class="w-full px-0 py-2 border-b border-neutral-300 text-site-textDark text-sm focus:outline-none focus:border-site-textDark transition-colors bg-transparent resize-none"></textarea>
-                            </div>
-
-                            <div>
-                                <label for="form-email" class="block text-xs font-semibold text-site-textDark mb-1.5">Укажите вашу электронную почту для ответа</label>
-                                <input type="email" id="form-email" required 
-                                    class="w-full px-0 py-2 border-b border-neutral-300 text-site-textDark text-sm focus:outline-none focus:border-site-textDark transition-colors bg-transparent">
-                            </div>
-
-                            <div>
-                                <label for="form-product" class="block text-xs font-semibold text-site-textDark mb-1.5">Выберите услугу</label>
-                                <select id="form-product" class="w-full px-0 py-2 border-b border-neutral-300 text-site-textDark text-sm focus:outline-none focus:border-site-textDark transition-colors bg-transparent">
-                                    <option value="Психологическая консультация">Психологическая консультация</option>
-                                    <option value="Психоаналитическое бизнес-консультирование">Психоаналитическое бизнес-консультирование</option>
-                                </select>
-                            </div>
-
-                            <div class="pt-4 space-y-4">
-                                <button type="submit" class="px-8 py-3.5 bg-site-accentRed hover:bg-site-accentRedHover text-white text-sm font-semibold rounded-sm transition-all shadow-sm">
-                                    Отправить
-                                </button>
-
-                                <div class="flex items-start gap-2">
-                                    <input type="checkbox" id="form-consent" required class="mt-1 accent-site-accentRed">
-                                    <label for="form-consent" class="text-[11px] text-neutral-500 font-light leading-tight">
-                                        Я даю согласие на обработку персональных данных и подтверждаю, что ознакомлен(а) с правилами работы.
-                                    </label>
-                                </div>
-                            </div>
-                        </form>
-
-                        <!-- Form Submission Success Feedback -->
-                        <div id="form-success" class="hidden py-8 space-y-3 text-center border border-emerald-200 bg-emerald-50 rounded p-6">
-                            <i data-lucide="check-circle" class="w-10 h-10 text-emerald-600 mx-auto"></i>
-                            <h3 class="text-lg font-bold text-emerald-900">Ваша заявка принята</h3>
-                            <p class="text-xs text-emerald-700">Роман Салихов ответит вам на указанный email в ближайшее время.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Modal 1: Правила работы -->
-    <div id="modal-rules" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
-        <div class="modal-backdrop fixed inset-0" onclick="closeRulesModal()"></div>
-        <div class="relative bg-white rounded border border-site-border max-w-xl w-full p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
-            <button onclick="closeRulesModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-800 p-2">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <div class="space-y-6">
-                <h3 class="text-2xl font-bold text-site-textDark border-b pb-3">Правила работы</h3>
-                
-                <div class="space-y-4 text-sm text-neutral-700 font-light leading-relaxed">
-                    <p><strong class="font-semibold text-site-textDark">1. Конфиденциальность:</strong> Абсолютная сохранность всех данных и темы беседы в рамках профессиональной этики психотерапии.</p>
-                    <p><strong class="font-semibold text-site-textDark">2. Длительность:</strong> Сессия длится 50 минут.</p>
-                    <p><strong class="font-semibold text-site-textDark">3. Отмена встреч:</strong> Перенос или отмена консультации происходят не менее чем за 24 часа до назначенного времени.</p>
-                    <p><strong class="font-semibold text-site-textDark">4. Формат:</strong> Онлайн по всему миру или очно по договоренности.</p>
-                </div>
-
-                <div class="pt-2 flex justify-end">
-                    <button onclick="closeRulesModal()" class="px-6 py-2 bg-site-textDark text-white text-xs font-semibold rounded-sm uppercase tracking-wider">
-                        Закрыть
-                    </button>
-                </div>
-            </div>
-        </div>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Роман Салихов</div>
+      <ul class="nav-links">
+        <li><a href="#about">О концепции</a></li>
+        <li><a href="#scenarios">С чем работаю</a></li>
+        <li><a href="#format">Формат</a></li>
+        <li><a href="#pricing">Условия</a></li>
+      </ul>
+      <div class="header-actions">
+        <a href="https://t.me/rs_199" target="_blank" class="btn-tg">Telegram @rs_199</a>
+        <a href="https://t.me/rs_199" class="btn-primary">Записаться</a>
+      </div>
     </div>
+  </header>
 
-    <!-- Modal 2: Стоимость консультаций -->
-    <div id="modal-pricing" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
-        <div class="modal-backdrop fixed inset-0" onclick="closePricingModal()"></div>
-        <div class="relative bg-white rounded border border-site-border max-w-xl w-full p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto">
-            <button onclick="closePricingModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-800 p-2">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-            <div class="space-y-6">
-                <h3 class="text-2xl font-bold text-site-textDark border-b pb-3">Стоимость консультаций</h3>
-                
-                <div class="space-y-4 text-sm">
-                    <div class="p-4 bg-site-bodyBg rounded space-y-1">
-                        <h4 class="font-bold text-site-textDark">Индивидуальная психологическая консультация</h4>
-                        <p class="text-xs text-neutral-600">50 минут (Онлайн / Очно)</p>
-                        <p class="text-sm font-mono font-semibold text-site-accentRed mt-2">По запросу</p>
-                    </div>
-
-                    <div class="p-4 bg-site-bodyBg rounded space-y-1">
-                        <h4 class="font-bold text-site-textDark">Психоаналитическое бизнес-консультирование</h4>
-                        <p class="text-xs text-neutral-600">Для топ-менеджеров и предпринимателей (50 минут)</p>
-                        <p class="text-sm font-mono font-semibold text-site-accentRed mt-2">По запросу</p>
-                    </div>
-                </div>
-
-                <div class="pt-2 flex justify-between items-center">
-                    <a href="https://t.me/rs_199" target="_blank" class="text-xs font-mono text-site-linkOrange hover:underline">
-                        Написать в Telegram: @rs_199
-                    </a>
-                    <button onclick="closePricingModal()" class="px-6 py-2 bg-site-textDark text-white text-xs font-semibold rounded-sm uppercase tracking-wider">
-                        Закрыть
-                    </button>
-                </div>
-            </div>
+  <main class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-meta">Бизнес-психолог для собственников & CEO</div>
+        <h1>Индивидуальная психологическая работа с решениями в бизнесе</h1>
+        <p class="hero-subtitle">Помогаю увидеть внутренние механизмы, мешающие принять ключевые решения в управлении, партнерстве и развитии компании.</p>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <a href="https://t.me/rs_199" class="btn-primary" style="padding: 1rem 2rem;">Начать с диагностики (30 мин)</a>
         </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="photo_2026-02-05_13-46-48.jpg" alt="Роман Салихов">
+      </div>
+    </section>
+
+    <!-- Scenarios Section -->
+    <section id="scenarios">
+      <h2 class="section-title">С чем можно прийти</h2>
+      <p class="section-desc">Рабочий запрос начинается с конкретного затруднения в управлении или развитии бизнеса.</p>
+      
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-num">01</div>
+          <h3>Решение откладывается</h3>
+          <p>Варианты действий понятны, но трудно принять риск, отказаться от прежнего плана или сделать первый шаг.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">02</div>
+          <h3>Контроль не отпускает</h3>
+          <p>Вы хотите передать ответственность команде, но снова проверяете детали и возвращаете задачи себе.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">03</div>
+          <h3>Конфликты и партнёрство</h3>
+          <p>Разногласия о ролях, долях, деньгах или будущем компании остаются без конструктивного обсуждения.</p>
+        </div>
+        <div class="card">
+          <div class="card-num">04</div>
+          <h3>Трансформация роли</h3>
+          <p>Бизнес вырос, прежняя роль стала тесной. Нужно пересобрать свое участие и выйти из операционки.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- First Step / Process -->
+    <section id="format">
+      <h2 class="section-title">С чего начать</h2>
+      <p class="section-desc">Первый шаг — диагностическая встреча (30 минут, онлайн).</p>
+
+      <div class="steps">
+        <div class="step-item">
+          <h4>01. Обсуждаем затруднение</h4>
+          <p>Что происходит в компании, какое решение требуется и где вы пока не можете продвинуться.</p>
+        </div>
+        <div class="step-item">
+          <h4>02. Уточняем запрос</h4>
+          <p>На какие внутренние и внешние факторы можно повлиять в работе, какое изменение имеет смысл.</p>
+        </div>
+        <div class="step-item">
+          <h4>03. Определяем формат</h4>
+          <p>Обсуждаем структуру работы. Решение о продолжении вы принимаете после знакомства.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing & Terms -->
+    <section id="pricing">
+      <div class="pricing-box">
+        <div class="pricing-details">
+          <h3>Индивидуальный рабочий цикл</h3>
+          <p style="color: var(--text-muted);">Последовательная психодинамическая работа с конкретным запросом руководителей.</p>
+          <div class="price-tag">8 000 ₽ <span>/ сессия</span></div>
+          <a href="https://t.me/rs_199" class="btn-primary" style="width: 100%;">Записаться на встречу</a>
+        </div>
+        <div>
+          <ul class="pricing-features">
+            <li><strong>Формат:</strong> Онлайн-встречи</li>
+            <li><strong>Длительность сессии:</strong> 50 минут</li>
+            <li><strong>Основной цикл:</strong> 10 встреч</li>
+            <li><strong>Оплата:</strong> По блокам (2 блока по 5 встреч)</li>
+          </ul>
+          <div style="display: flex; gap: 1rem;">
+            <button onclick="openModal('rules')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline;">Правила работы</button>
+            <button onclick="openModal('ethics')" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline;">Этика & Конфиденциальность</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section>
+      <h2 class="section-title">Образование и квалификация</h2>
+      <div class="grid-4" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card">
+          <h3>НИУ ВШЭ</h3>
+          <p>Национальный исследовательский университет «Высшая школа экономики»</p>
+        </div>
+        <div class="card">
+          <h3>МГУ им. М.В. Ломоносова</h3>
+          <p>Московский государственный университет имени М.В. Ломоносова</p>
+        </div>
+        <div class="card">
+          <h3>ИПКиПП</h3>
+          <p>Институт психотерапии и клинической психологии</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom: 1rem;">Роман Михайлович Салихов</div>
+          <p style="margin-bottom: 1rem;">Бизнес-психоаналитический коучинг и консультирование собственников бизнеса.</p>
+          <p>Телефон: <a href="tel:+79168886750" style="color: var(--text-main);">+7 916 888-67-50</a></p>
+          <p>Telegram: <a href="https://t.me/rs_199" style="color: var(--text-main);">@rs_199</a></p>
+        </div>
+        <div>
+          <h4 style="color: var(--text-main); margin-bottom: 1rem;">Навигация</h4>
+          <p><a href="#scenarios">С чем работаю</a></p>
+          <p><a href="#format">Формат</a></p>
+          <p><a href="#pricing">Стоимость</a></p>
+        </div>
+        <div class="legal-info">
+          <h4 style="color: var(--text-main); margin-bottom: 1rem;">Юридическая информация</h4>
+          <p>ИП Салихов Р. М.</p>
+          <p>ИНН: (Укажите ИНН)</p>
+          <p>ОГРНИП: (Укажите ОГРНИП)</p>
+          <p>© 2026 Все права защищены</p>
+        </div>
+      </div>
     </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="bg-site-heroBg text-white py-12 text-xs font-light border-t border-neutral-800">
-        <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <div class="space-y-1.5 text-left">
-                <span class="text-base font-bold text-white block">ИП Салихов Роман Михайлович</span>
-                <p class="text-neutral-400 font-mono text-[11px] leading-relaxed">
-                    ИНН: 770000000000 | ОГРНИП: 320000000000000
-                </p>
-                <p class="text-neutral-500 text-[11px]">Психолог, бизнес-консультант</p>
-            </div>
-            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 font-mono text-neutral-300">
-                <a href="tel:+79168886750" class="hover:text-white transition-colors">+7 (916) 888-67-50</a>
-                <a href="https://t.me/rs_199" target="_blank" class="hover:text-white transition-colors">Telegram: @rs_199</a>
-            </div>
-        </div>
-    </footer>
+  <!-- Modal Windows -->
+  <div id="modal-rules" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('rules')">&times;</button>
+      <h3 style="margin-bottom: 1rem;">Правила работы</h3>
+      <p style="color: var(--text-muted); margin-bottom: 1rem;">Консультации проходят онлайн в заранее согласованное время. Отмена или перенос сессии возможны не позднее чем за 24 часа до её начала.</p>
+      <p style="color: var(--text-muted);">При опоздании время сессии не продлевается.</p>
+    </div>
+  </div>
 
-    <!-- Script handlers -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-        });
+  <div id="modal-ethics" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('ethics')">&times;</button>
+      <h3 style="margin-bottom: 1rem;">Конфиденциальность</h3>
+      <p style="color: var(--text-muted);">Вся информация, полученная в ходе встреч, является строго конфиденциальной и не подлежит разглашению третьим лицам ни при каких обстоятельствах.</p>
+    </div>
+  </div>
 
-        function openRulesModal() {
-            document.getElementById('modal-rules').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeRulesModal() {
-            document.getElementById('modal-rules').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        function openPricingModal() {
-            document.getElementById('modal-pricing').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        function closePricingModal() {
-            document.getElementById('modal-pricing').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            document.getElementById('contact-form').classList.add('hidden');
-            document.getElementById('form-success').classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
+  <script>
+    function openModal(id) {
+      document.getElementById('modal-' + id).style.display = 'flex';
+    }
+    function closeModal(id) {
+      document.getElementById('modal-' + id).style.display = 'none';
+    }
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
